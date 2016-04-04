@@ -1,7 +1,7 @@
-SAMI Python SDK
+ARTIK Cloud Python SDK
 ================
 
-This SDK helps you connect your Python scripts to SAMI. The SDK helps authenticating with SAMI, exposes a number of methods to easily execute REST API calls to SAMI.
+This SDK helps you connect your Python scripts to ARTIK Cloud. The SDK helps authenticating with ARTIK Cloud, and exposes a number of methods to easily execute REST API calls to ARTIK Cloud.
 
 More about ARTIK Cloud
 -------------------------
@@ -17,6 +17,6 @@ To create and manage your services and devices on ARTIK Cloud, create an account
 Licence and Copyright
 ---------------------
 
-Licensed under the Apache License. See LICENCE.
+Licensed under the Apache License. See [LICENCE](https://github.com/artikcloud/artikcloud-python/blob/master/LICENSE).
 
 Copyright (c) 2016 Samsung Electronics Co., Ltd.
