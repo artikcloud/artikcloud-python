@@ -16,13 +16,13 @@ python setup.py install
 Or you can install from Github via pip:
 
 ```sh
-pip install git+https://github.com/geekerzp/swagger_client.git
+pip install git+https://github.com/artikcloud/artikcloud-python.git
 ```
 
 To use the bindings, import the package:
 
 ```python
-import swagger_client
+import artikcloud
 ```
 
 ## Manual Installation
@@ -30,7 +30,7 @@ If you do not wish to use setuptools, you can download the latest release.
 Then, to use the bindings, import the package:
 
 ```python
-import path.to.swagger_client
+import path.to.artikcloud
 ```
 
 ## Getting Started
@@ -50,21 +50,36 @@ TODO
 ```sh
 $ make test
 [... magically installs dependencies and runs tests on your virtualenv]
-Ran 7 tests in 19.289s
+Finished processing dependencies for artikcloud==2.0.0
+test_send_message (tests.test_messages_api.MessagesApiTests) ... ok
+test_get_user_devices (tests.test_users_api.UsersApiTests) ... ok
+test_get_self_async (tests.test_users_api.UsersApiTests) ... ok
+test_get_self (tests.test_users_api.UsersApiTests) ... ok
+...
+Ran 4 tests in 13.905s
 
 OK
 ```
 or
 
 ```
-$ mvn integration-test -rf :PythonPetstoreClientTests
-Using 2195432783 as seed
+$ mvn integration-test -rf :ArtikCloudClientTests
+...
+Finished processing dependencies for artikcloud==2.0.0
+test_send_message (tests.test_messages_api.MessagesApiTests) ... ok
+test_get_self (tests.test_users_api.UsersApiTests) ... ok
+test_get_self_async (tests.test_users_api.UsersApiTests) ... ok
+test_get_user_devices (tests.test_users_api.UsersApiTests) ... ok
+...
+Ran 4 tests in 14.330s
+
+OK
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 37.594 s
-[INFO] Finished at: 2015-05-16T18:00:35+08:00
-[INFO] Final Memory: 11M/156M
+[INFO] Total time: 31.999 s
+[INFO] Finished at: 2016-04-06T14:26:48-07:00
+[INFO] Final Memory: 12M/309M
 [INFO] ------------------------------------------------------------------------
 ```
 If you want to run the tests in all the python platforms:
