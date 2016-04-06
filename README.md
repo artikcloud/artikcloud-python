@@ -35,11 +35,9 @@ import path.to.artikcloud
 
 ## Getting Started
 
-TODO
+Peek into [tests](https://github.com/artikcloud/artikcloud-python/tree/master/tests) for examples about how to use the Python SDK.
 
-## Documentation
-
-TODO
+In addtion, you can look at our tutorial and sample applications. These will give you a good overview of what you can do and how to do it.
 
 ## Tests
 
