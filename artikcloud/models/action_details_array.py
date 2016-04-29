@@ -37,36 +37,36 @@ class ActionDetailsArray(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'tags': 'list[ActionDetails]'
+            'actions': 'list[ActionDetails]'
         }
 
         self.attribute_map = {
-            'tags': 'tags'
+            'actions': 'actions'
         }
 
-        self._tags = None
+        self._actions = None
 
     @property
-    def tags(self):
+    def actions(self):
         """
-        Gets the tags of this ActionDetailsArray.
+        Gets the actions of this ActionDetailsArray.
 
 
-        :return: The tags of this ActionDetailsArray.
+        :return: The actions of this ActionDetailsArray.
         :rtype: list[ActionDetails]
         """
-        return self._tags
+        return self._actions
 
-    @tags.setter
-    def tags(self, tags):
+    @actions.setter
+    def actions(self, actions):
         """
-        Sets the tags of this ActionDetailsArray.
+        Sets the actions of this ActionDetailsArray.
 
 
-        :param tags: The tags of this ActionDetailsArray.
+        :param actions: The actions of this ActionDetailsArray.
         :type: list[ActionDetails]
         """
-        self._tags = tags
+        self._actions = actions
 
     def to_dict(self):
         """

@@ -45,6 +45,160 @@ class DeviceTypesApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
+    def get_available_manifest_versions(self, device_type_id, **kwargs):
+        """
+        Get Available Manifest Versions
+        Get a Device Type's available manifest versions
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_available_manifest_versions(device_type_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str device_type_id: deviceTypeId (required)
+        :return: ManifestVersionsEnvelope
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['device_type_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_available_manifest_versions" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'device_type_id' is set
+        if ('device_type_id' not in params) or (params['device_type_id'] is None):
+            raise ValueError("Missing the required parameter `device_type_id` when calling `get_available_manifest_versions`")
+
+        resource_path = '/devicetypes/{deviceTypeId}/availablemanifestversions'.replace('{format}', 'json')
+        path_params = {}
+        if 'device_type_id' in params:
+            path_params['deviceTypeId'] = params['device_type_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['artikcloud_oauth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='ManifestVersionsEnvelope',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_device_type(self, device_type_id, **kwargs):
+        """
+        Get Device Type
+        Retrieves a Device Type
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_device_type(device_type_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str device_type_id: deviceTypeId (required)
+        :return: DeviceTypeEnvelope
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['device_type_id']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_device_type" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'device_type_id' is set
+        if ('device_type_id' not in params) or (params['device_type_id'] is None):
+            raise ValueError("Missing the required parameter `device_type_id` when calling `get_device_type`")
+
+        resource_path = '/devicetypes/{deviceTypeId}'.replace('{format}', 'json')
+        path_params = {}
+        if 'device_type_id' in params:
+            path_params['deviceTypeId'] = params['device_type_id']
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['artikcloud_oauth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='DeviceTypeEnvelope',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
     def get_device_types(self, name, **kwargs):
         """
         Get Device Types
@@ -127,160 +281,6 @@ class DeviceTypesApi(object):
                                             post_params=form_params,
                                             files=local_var_files,
                                             response_type='DeviceTypesEnvelope',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_device_type(self, device_type_id, **kwargs):
-        """
-        Get Device Type
-        Retrieves a Device Type
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_device_type(device_type_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str device_type_id: deviceTypeId (required)
-        :return: DeviceTypeEnvelope
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['device_type_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_device_type" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'device_type_id' is set
-        if ('device_type_id' not in params) or (params['device_type_id'] is None):
-            raise ValueError("Missing the required parameter `device_type_id` when calling `get_device_type`")
-
-        resource_path = '/devicetypes/{deviceTypeId}'.replace('{format}', 'json')
-        path_params = {}
-        if 'device_type_id' in params:
-            path_params['deviceTypeId'] = params['device_type_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
-
-        # Authentication setting
-        auth_settings = ['artikcloud_oauth']
-
-        response = self.api_client.call_api(resource_path, 'GET',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='DeviceTypeEnvelope',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_available_manifest_versions(self, device_type_id, **kwargs):
-        """
-        Get Available Manifest Versions
-        Get a Device Type's available manifest versions
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_available_manifest_versions(device_type_id, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str device_type_id: deviceTypeId (required)
-        :return: ManifestVersionsEnvelope
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['device_type_id']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_available_manifest_versions" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'device_type_id' is set
-        if ('device_type_id' not in params) or (params['device_type_id'] is None):
-            raise ValueError("Missing the required parameter `device_type_id` when calling `get_available_manifest_versions`")
-
-        resource_path = '/devicetypes/{deviceTypeId}/availablemanifestversions'.replace('{format}', 'json')
-        path_params = {}
-        if 'device_type_id' in params:
-            path_params['deviceTypeId'] = params['device_type_id']
-
-        query_params = {}
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
-
-        # Authentication setting
-        auth_settings = ['artikcloud_oauth']
-
-        response = self.api_client.call_api(resource_path, 'GET',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='ManifestVersionsEnvelope',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response

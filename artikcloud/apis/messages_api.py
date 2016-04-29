@@ -45,6 +45,368 @@ class MessagesApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
+    def get_aggregates_histogram(self, start_date, end_date, **kwargs):
+        """
+        Get Histogram aggregates
+        Get Histogram on normalized messages.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_aggregates_histogram(start_date, end_date, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int start_date: Timestamp of earliest message (in milliseconds since epoch). (required)
+        :param int end_date: Timestamp of latest message (in milliseconds since epoch). (required)
+        :param str sdid: Source device ID of the messages being searched.
+        :param str field: Message field being queried for building histogram.
+        :param str interval: Interval of time for building histogram blocks. (Valid values: minute, hour, day, month, year)
+        :return: AggregatesHistogramResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['start_date', 'end_date', 'sdid', 'field', 'interval']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_aggregates_histogram" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'start_date' is set
+        if ('start_date' not in params) or (params['start_date'] is None):
+            raise ValueError("Missing the required parameter `start_date` when calling `get_aggregates_histogram`")
+        # verify the required parameter 'end_date' is set
+        if ('end_date' not in params) or (params['end_date'] is None):
+            raise ValueError("Missing the required parameter `end_date` when calling `get_aggregates_histogram`")
+
+        resource_path = '/messages/analytics/histogram'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'start_date' in params:
+            query_params['startDate'] = params['start_date']
+        if 'end_date' in params:
+            query_params['endDate'] = params['end_date']
+        if 'sdid' in params:
+            query_params['sdid'] = params['sdid']
+        if 'field' in params:
+            query_params['field'] = params['field']
+        if 'interval' in params:
+            query_params['interval'] = params['interval']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['artikcloud_oauth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='AggregatesHistogramResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_field_presence(self, start_date, end_date, interval, **kwargs):
+        """
+        Get normalized message presence
+        Get normalized message presence.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_field_presence(start_date, end_date, interval, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int start_date: startDate (required)
+        :param int end_date: endDate (required)
+        :param str interval: String representing grouping interval. One of: 'minute' (1 hour limit), 'hour' (1 day limit), 'day' (31 days limit), 'month' (1 year limit), or 'year' (10 years limit). (required)
+        :param str sdid: Source device ID of the messages being searched.
+        :param str field_presence: String representing a field from the specified device ID.
+        :return: FieldPresenceEnvelope
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['start_date', 'end_date', 'interval', 'sdid', 'field_presence']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_field_presence" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'start_date' is set
+        if ('start_date' not in params) or (params['start_date'] is None):
+            raise ValueError("Missing the required parameter `start_date` when calling `get_field_presence`")
+        # verify the required parameter 'end_date' is set
+        if ('end_date' not in params) or (params['end_date'] is None):
+            raise ValueError("Missing the required parameter `end_date` when calling `get_field_presence`")
+        # verify the required parameter 'interval' is set
+        if ('interval' not in params) or (params['interval'] is None):
+            raise ValueError("Missing the required parameter `interval` when calling `get_field_presence`")
+
+        resource_path = '/messages/presence'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'sdid' in params:
+            query_params['sdid'] = params['sdid']
+        if 'field_presence' in params:
+            query_params['fieldPresence'] = params['field_presence']
+        if 'start_date' in params:
+            query_params['startDate'] = params['start_date']
+        if 'end_date' in params:
+            query_params['endDate'] = params['end_date']
+        if 'interval' in params:
+            query_params['interval'] = params['interval']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['artikcloud_oauth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='FieldPresenceEnvelope',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_last_normalized_messages(self, **kwargs):
+        """
+        Get Last Normalized Message
+        Get last messages normalized.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_last_normalized_messages(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param int count: Number of items to return per query.
+        :param str sdids: Comma separated list of source device IDs (minimum: 1).
+        :param str field_presence: String representing a field from the specified device ID.
+        :return: NormalizedMessagesEnvelope
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['count', 'sdids', 'field_presence']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_last_normalized_messages" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+
+        resource_path = '/messages/last'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'count' in params:
+            query_params['count'] = params['count']
+        if 'sdids' in params:
+            query_params['sdids'] = params['sdids']
+        if 'field_presence' in params:
+            query_params['fieldPresence'] = params['field_presence']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['artikcloud_oauth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NormalizedMessagesEnvelope',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
+    def get_message_aggregates(self, sdid, field, start_date, end_date, **kwargs):
+        """
+        Get Normalized Message Aggregates
+        Get Aggregates on normalized messages.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_message_aggregates(sdid, field, start_date, end_date, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str sdid: Source device ID of the messages being searched. (required)
+        :param str field: Message field being queried for aggregates. (required)
+        :param int start_date: Timestamp of earliest message (in milliseconds since epoch). (required)
+        :param int end_date: Timestamp of latest message (in milliseconds since epoch). (required)
+        :return: AggregatesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['sdid', 'field', 'start_date', 'end_date']
+        all_params.append('callback')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_message_aggregates" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        # verify the required parameter 'sdid' is set
+        if ('sdid' not in params) or (params['sdid'] is None):
+            raise ValueError("Missing the required parameter `sdid` when calling `get_message_aggregates`")
+        # verify the required parameter 'field' is set
+        if ('field' not in params) or (params['field'] is None):
+            raise ValueError("Missing the required parameter `field` when calling `get_message_aggregates`")
+        # verify the required parameter 'start_date' is set
+        if ('start_date' not in params) or (params['start_date'] is None):
+            raise ValueError("Missing the required parameter `start_date` when calling `get_message_aggregates`")
+        # verify the required parameter 'end_date' is set
+        if ('end_date' not in params) or (params['end_date'] is None):
+            raise ValueError("Missing the required parameter `end_date` when calling `get_message_aggregates`")
+
+        resource_path = '/messages/analytics/aggregates'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'sdid' in params:
+            query_params['sdid'] = params['sdid']
+        if 'field' in params:
+            query_params['field'] = params['field']
+        if 'start_date' in params:
+            query_params['startDate'] = params['start_date']
+        if 'end_date' in params:
+            query_params['endDate'] = params['end_date']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['artikcloud_oauth']
+
+        response = self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='AggregatesResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'))
+        return response
+
     def get_normalized_messages(self, **kwargs):
         """
         Get Normalized Messages
@@ -219,368 +581,6 @@ class MessagesApi(object):
                                             post_params=form_params,
                                             files=local_var_files,
                                             response_type='MessageIDEnvelope',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_message_aggregates(self, sdid, field, start_date, end_date, **kwargs):
-        """
-        Get Normalized Message Aggregates
-        Get Aggregates on normalized messages.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_message_aggregates(sdid, field, start_date, end_date, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param str sdid: Source device ID of the messages being searched. (required)
-        :param str field: Message field being queried for aggregates. (required)
-        :param int start_date: Timestamp of earliest message (in milliseconds since epoch). (required)
-        :param int end_date: Timestamp of latest message (in milliseconds since epoch). (required)
-        :return: AggregatesResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['sdid', 'field', 'start_date', 'end_date']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_message_aggregates" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'sdid' is set
-        if ('sdid' not in params) or (params['sdid'] is None):
-            raise ValueError("Missing the required parameter `sdid` when calling `get_message_aggregates`")
-        # verify the required parameter 'field' is set
-        if ('field' not in params) or (params['field'] is None):
-            raise ValueError("Missing the required parameter `field` when calling `get_message_aggregates`")
-        # verify the required parameter 'start_date' is set
-        if ('start_date' not in params) or (params['start_date'] is None):
-            raise ValueError("Missing the required parameter `start_date` when calling `get_message_aggregates`")
-        # verify the required parameter 'end_date' is set
-        if ('end_date' not in params) or (params['end_date'] is None):
-            raise ValueError("Missing the required parameter `end_date` when calling `get_message_aggregates`")
-
-        resource_path = '/messages/analytics/aggregates'.replace('{format}', 'json')
-        path_params = {}
-
-        query_params = {}
-        if 'sdid' in params:
-            query_params['sdid'] = params['sdid']
-        if 'field' in params:
-            query_params['field'] = params['field']
-        if 'start_date' in params:
-            query_params['startDate'] = params['start_date']
-        if 'end_date' in params:
-            query_params['endDate'] = params['end_date']
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
-
-        # Authentication setting
-        auth_settings = ['artikcloud_oauth']
-
-        response = self.api_client.call_api(resource_path, 'GET',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='AggregatesResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_aggregates_histogram(self, start_date, end_date, **kwargs):
-        """
-        Get Histogram aggregates
-        Get Histogram on normalized messages.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_aggregates_histogram(start_date, end_date, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int start_date: Timestamp of earliest message (in milliseconds since epoch). (required)
-        :param int end_date: Timestamp of latest message (in milliseconds since epoch). (required)
-        :param str sdid: Source device ID of the messages being searched.
-        :param str field: Message field being queried for building histogram.
-        :param str interval: Interval of time for building histogram blocks. (Valid values: minute, hour, day, month, year)
-        :return: AggregatesHistogramResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['start_date', 'end_date', 'sdid', 'field', 'interval']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_aggregates_histogram" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'start_date' is set
-        if ('start_date' not in params) or (params['start_date'] is None):
-            raise ValueError("Missing the required parameter `start_date` when calling `get_aggregates_histogram`")
-        # verify the required parameter 'end_date' is set
-        if ('end_date' not in params) or (params['end_date'] is None):
-            raise ValueError("Missing the required parameter `end_date` when calling `get_aggregates_histogram`")
-
-        resource_path = '/messages/analytics/histogram'.replace('{format}', 'json')
-        path_params = {}
-
-        query_params = {}
-        if 'start_date' in params:
-            query_params['startDate'] = params['start_date']
-        if 'end_date' in params:
-            query_params['endDate'] = params['end_date']
-        if 'sdid' in params:
-            query_params['sdid'] = params['sdid']
-        if 'field' in params:
-            query_params['field'] = params['field']
-        if 'interval' in params:
-            query_params['interval'] = params['interval']
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
-
-        # Authentication setting
-        auth_settings = ['artikcloud_oauth']
-
-        response = self.api_client.call_api(resource_path, 'GET',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='AggregatesHistogramResponse',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_last_normalized_messages(self, **kwargs):
-        """
-        Get Last Normalized Message
-        Get last messages normalized.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_last_normalized_messages(callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int count: Number of items to return per query.
-        :param str sdids: Comma separated list of source device IDs (minimum: 1).
-        :param str field_presence: String representing a field from the specified device ID.
-        :return: NormalizedMessagesEnvelope
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['count', 'sdids', 'field_presence']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_last_normalized_messages" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-
-        resource_path = '/messages/last'.replace('{format}', 'json')
-        path_params = {}
-
-        query_params = {}
-        if 'count' in params:
-            query_params['count'] = params['count']
-        if 'sdids' in params:
-            query_params['sdids'] = params['sdids']
-        if 'field_presence' in params:
-            query_params['fieldPresence'] = params['field_presence']
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
-
-        # Authentication setting
-        auth_settings = ['artikcloud_oauth']
-
-        response = self.api_client.call_api(resource_path, 'GET',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='NormalizedMessagesEnvelope',
-                                            auth_settings=auth_settings,
-                                            callback=params.get('callback'))
-        return response
-
-    def get_field_presence(self, start_date, end_date, interval, **kwargs):
-        """
-        Get normalized message presence
-        Get normalized message presence.
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please define a `callback` function
-        to be invoked when receiving the response.
-        >>> def callback_function(response):
-        >>>     pprint(response)
-        >>>
-        >>> thread = api.get_field_presence(start_date, end_date, interval, callback=callback_function)
-
-        :param callback function: The callback function
-            for asynchronous request. (optional)
-        :param int start_date: startDate (required)
-        :param int end_date: endDate (required)
-        :param str interval: String representing grouping interval. One of: 'minute' (1 hour limit), 'hour' (1 day limit), 'day' (31 days limit), 'month' (1 year limit), or 'year' (10 years limit). (required)
-        :param str sdid: Source device ID of the messages being searched.
-        :param str field_presence: String representing a field from the specified device ID.
-        :return: FieldPresenceEnvelope
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['start_date', 'end_date', 'interval', 'sdid', 'field_presence']
-        all_params.append('callback')
-
-        params = locals()
-        for key, val in iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_field_presence" % key
-                )
-            params[key] = val
-        del params['kwargs']
-
-        # verify the required parameter 'start_date' is set
-        if ('start_date' not in params) or (params['start_date'] is None):
-            raise ValueError("Missing the required parameter `start_date` when calling `get_field_presence`")
-        # verify the required parameter 'end_date' is set
-        if ('end_date' not in params) or (params['end_date'] is None):
-            raise ValueError("Missing the required parameter `end_date` when calling `get_field_presence`")
-        # verify the required parameter 'interval' is set
-        if ('interval' not in params) or (params['interval'] is None):
-            raise ValueError("Missing the required parameter `interval` when calling `get_field_presence`")
-
-        resource_path = '/messages/presence'.replace('{format}', 'json')
-        path_params = {}
-
-        query_params = {}
-        if 'sdid' in params:
-            query_params['sdid'] = params['sdid']
-        if 'field_presence' in params:
-            query_params['fieldPresence'] = params['field_presence']
-        if 'start_date' in params:
-            query_params['startDate'] = params['start_date']
-        if 'end_date' in params:
-            query_params['endDate'] = params['end_date']
-        if 'interval' in params:
-            query_params['interval'] = params['interval']
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.\
-            select_header_accept(['application/json'])
-        if not header_params['Accept']:
-            del header_params['Accept']
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
-
-        # Authentication setting
-        auth_settings = ['artikcloud_oauth']
-
-        response = self.api_client.call_api(resource_path, 'GET',
-                                            path_params,
-                                            query_params,
-                                            header_params,
-                                            body=body_params,
-                                            post_params=form_params,
-                                            files=local_var_files,
-                                            response_type='FieldPresenceEnvelope',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'))
         return response
