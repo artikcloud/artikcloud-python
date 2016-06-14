@@ -4,7 +4,7 @@ import sys
 from setuptools import setup, find_packages
 
 NAME = "artikcloud"
-VERSION = "2.0.0"
+VERSION = "2.0.3"
 
 
 
