@@ -573,7 +573,7 @@ class DevicesApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
-            select_header_content_type(['application/json'])
+            select_header_content_type(['text/plain'])
 
         # Authentication setting
         auth_settings = ['artikcloud_oauth']

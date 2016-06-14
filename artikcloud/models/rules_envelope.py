@@ -38,7 +38,7 @@ class RulesEnvelope(object):
         """
         self.swagger_types = {
             'count': 'int',
-            'data': 'RuleArray',
+            'data': 'list[OutputRule]',
             'offset': 'int',
             'total': 'int'
         }
@@ -84,7 +84,7 @@ class RulesEnvelope(object):
 
 
         :return: The data of this RulesEnvelope.
-        :rtype: RuleArray
+        :rtype: list[OutputRule]
         """
         return self._data
 
@@ -95,7 +95,7 @@ class RulesEnvelope(object):
 
 
         :param data: The data of this RulesEnvelope.
-        :type: RuleArray
+        :type: list[OutputRule]
         """
         self._data = data
 

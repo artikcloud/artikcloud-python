@@ -551,7 +551,6 @@ class UsersApi(object):
             for asynchronous request. (optional)
         :param str user_id: User ID. (required)
         :param bool exclude_disabled: Exclude disabled rules in the result.
-        :param bool other_applications: List rules of other applications if current application id has full read access
         :param int count: Desired count of items in the result set.
         :param int offset: Offset for pagination.
         :return: RulesEnvelope
@@ -559,7 +558,7 @@ class UsersApi(object):
                  returns the request thread.
         """
 
-        all_params = ['user_id', 'exclude_disabled', 'other_applications', 'count', 'offset']
+        all_params = ['user_id', 'exclude_disabled', 'count', 'offset']
         all_params.append('callback')
 
         params = locals()
@@ -584,8 +583,6 @@ class UsersApi(object):
         query_params = {}
         if 'exclude_disabled' in params:
             query_params['excludeDisabled'] = params['exclude_disabled']
-        if 'other_applications' in params:
-            query_params['otherApplications'] = params['other_applications']
         if 'count' in params:
             query_params['count'] = params['count']
         if 'offset' in params:
