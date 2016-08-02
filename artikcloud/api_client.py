@@ -190,9 +190,9 @@ class ApiClient(object):
         :param obj: The data to serialize.
         :return: The serialized form of data.
         """
-        types = (str, int, long, float, bool, tuple)
+        types = (str, int, float, bool, tuple)
         if sys.version_info < (3,0):
-            types = types + (unicode,)
+            types = types + (long, unicode,)
         if isinstance(obj, type(None)):
             return None
         elif isinstance(obj, types):
@@ -273,7 +273,10 @@ class ApiClient(object):
             else:
                 klass = eval('models.' + klass)
 
-        if klass in [int, long, float, str, bool]:
+        klass_types = [int, float, str, bool]
+        if sys.version_info < (3,0):
+            klass_types += [long]
+        if klass in klass_types:
             return self.__deserialize_primitive(data, klass)
         elif klass == object:
             return self.__deserialize_object(data)
