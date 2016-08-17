@@ -1,5 +1,6 @@
 ARTIK Cloud Python SDK
 ================
+[![PyPI version](https://badge.fury.io/py/artikcloud.svg)](https://badge.fury.io/py/artikcloud)
 
 This SDK helps you connect your Python scripts to ARTIK Cloud. The SDK helps authenticating with ARTIK Cloud, and exposes a number of methods to easily execute REST API calls to ARTIK Cloud.
 
