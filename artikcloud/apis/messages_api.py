@@ -53,7 +53,7 @@ class MessagesApi(object):
 
     def get_aggregates_histogram(self, start_date, end_date, **kwargs):
         """
-        Get Histogram aggregates
+        Get Normalized Message Histogram
         Get Histogram on normalized messages.
 
         This method makes a synchronous HTTP request by default. To make an
@@ -84,7 +84,7 @@ class MessagesApi(object):
 
     def get_aggregates_histogram_with_http_info(self, start_date, end_date, **kwargs):
         """
-        Get Histogram aggregates
+        Get Normalized Message Histogram
         Get Histogram on normalized messages.
 
         This method makes a synchronous HTTP request by default. To make an
@@ -782,7 +782,7 @@ class MessagesApi(object):
     def send_message_action(self, data, **kwargs):
         """
         Send Message Action
-        Send a message or an Action:<br/><table><tr><th>Combination</th><th>Parameters</th><th>Description</th></tr><tr><td>Send Message</td><td>sdid, type=message</td><td>Send a message from a Source Device</td></tr><tr><td>Send Action</td><td>ddid, type=action</td><td>Send an action to a Destination Device</td></tr><tr><td>Common</td><td>data, ts, token</td><td>Parameters that can be used with the above combinations.</td></tr></table>
+        (Deprecated) Send a message or an Action:<br/><table><tr><th>Combination</th><th>Parameters</th><th>Description</th></tr><tr><td>Send Message</td><td>sdid, type=message</td><td>Send a message from a Source Device</td></tr><tr><td>Send Action</td><td>ddid, type=action</td><td>Send an action to a Destination Device</td></tr><tr><td>Common</td><td>data, ts, token</td><td>Parameters that can be used with the above combinations.</td></tr></table>
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -809,7 +809,7 @@ class MessagesApi(object):
     def send_message_action_with_http_info(self, data, **kwargs):
         """
         Send Message Action
-        Send a message or an Action:<br/><table><tr><th>Combination</th><th>Parameters</th><th>Description</th></tr><tr><td>Send Message</td><td>sdid, type=message</td><td>Send a message from a Source Device</td></tr><tr><td>Send Action</td><td>ddid, type=action</td><td>Send an action to a Destination Device</td></tr><tr><td>Common</td><td>data, ts, token</td><td>Parameters that can be used with the above combinations.</td></tr></table>
+        (Deprecated) Send a message or an Action:<br/><table><tr><th>Combination</th><th>Parameters</th><th>Description</th></tr><tr><td>Send Message</td><td>sdid, type=message</td><td>Send a message from a Source Device</td></tr><tr><td>Send Action</td><td>ddid, type=action</td><td>Send an action to a Destination Device</td></tr><tr><td>Common</td><td>data, ts, token</td><td>Parameters that can be used with the above combinations.</td></tr></table>
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function

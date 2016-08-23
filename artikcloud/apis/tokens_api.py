@@ -54,7 +54,7 @@ class TokensApi(object):
     def check_token(self, token_info, **kwargs):
         """
         Check Token
-        Check Token
+        (Deprecated) Check Token. See tokenInfo
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -81,7 +81,7 @@ class TokensApi(object):
     def check_token_with_http_info(self, token_info, **kwargs):
         """
         Check Token
-        Check Token
+        (Deprecated) Check Token. See tokenInfo
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function

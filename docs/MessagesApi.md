@@ -4,7 +4,7 @@ All URIs are relative to *https://api.artik.cloud/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_aggregates_histogram**](MessagesApi.md#get_aggregates_histogram) | **GET** /messages/analytics/histogram | Get Histogram aggregates
+[**get_aggregates_histogram**](MessagesApi.md#get_aggregates_histogram) | **GET** /messages/analytics/histogram | Get Normalized Message Histogram
 [**get_field_presence**](MessagesApi.md#get_field_presence) | **GET** /messages/presence | Get normalized message presence
 [**get_last_normalized_messages**](MessagesApi.md#get_last_normalized_messages) | **GET** /messages/last | Get Last Normalized Message
 [**get_message_aggregates**](MessagesApi.md#get_message_aggregates) | **GET** /messages/analytics/aggregates | Get Normalized Message Aggregates
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 # **get_aggregates_histogram**
 > AggregatesHistogramResponse get_aggregates_histogram(start_date, end_date, sdid=sdid, field=field, interval=interval)
 
-Get Histogram aggregates
+Get Normalized Message Histogram
 
 Get Histogram on normalized messages.
 
@@ -39,7 +39,7 @@ field = 'field_example' # str | Message field being queried for building histogr
 interval = 'interval_example' # str | Interval of time for building histogram blocks. (Valid values: minute, hour, day, month, year) (optional)
 
 try: 
-    # Get Histogram aggregates
+    # Get Normalized Message Histogram
     api_response = api_instance.get_aggregates_histogram(start_date, end_date, sdid=sdid, field=field, interval=interval)
     pprint(api_response)
 except ApiException as e:
@@ -364,7 +364,7 @@ Name | Type | Description  | Notes
 
 Send Message Action
 
-Send a message or an Action:<br/><table><tr><th>Combination</th><th>Parameters</th><th>Description</th></tr><tr><td>Send Message</td><td>sdid, type=message</td><td>Send a message from a Source Device</td></tr><tr><td>Send Action</td><td>ddid, type=action</td><td>Send an action to a Destination Device</td></tr><tr><td>Common</td><td>data, ts, token</td><td>Parameters that can be used with the above combinations.</td></tr></table>
+(Deprecated) Send a message or an Action:<br/><table><tr><th>Combination</th><th>Parameters</th><th>Description</th></tr><tr><td>Send Message</td><td>sdid, type=message</td><td>Send a message from a Source Device</td></tr><tr><td>Send Action</td><td>ddid, type=action</td><td>Send an action to a Destination Device</td></tr><tr><td>Common</td><td>data, ts, token</td><td>Parameters that can be used with the above combinations.</td></tr></table>
 
 ### Example 
 ```python
