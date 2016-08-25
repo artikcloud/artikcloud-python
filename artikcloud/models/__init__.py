@@ -27,10 +27,13 @@ from __future__ import absolute_import
 # import models into model package
 from .ack_envelope import AckEnvelope
 from .acknowledgement import Acknowledgement
+from .action import Action
+from .action_array import ActionArray
 from .action_details import ActionDetails
 from .action_details_array import ActionDetailsArray
 from .action_in import ActionIn
 from .action_out import ActionOut
+from .actions import Actions
 from .aggregate_data import AggregateData
 from .aggregates_histogram_data import AggregatesHistogramData
 from .aggregates_histogram_response import AggregatesHistogramResponse
@@ -73,12 +76,15 @@ from .manifest_properties import ManifestProperties
 from .manifest_properties_envelope import ManifestPropertiesEnvelope
 from .manifest_versions import ManifestVersions
 from .manifest_versions_envelope import ManifestVersionsEnvelope
+from .message import Message
 from .message_action import MessageAction
 from .message_id import MessageID
 from .message_id_envelope import MessageIDEnvelope
 from .message_in import MessageIn
 from .message_out import MessageOut
 from .non_empty_string import NonEmptyString
+from .normalized_action import NormalizedAction
+from .normalized_actions_envelope import NormalizedActionsEnvelope
 from .normalized_message import NormalizedMessage
 from .normalized_messages_envelope import NormalizedMessagesEnvelope
 from .output_rule import OutputRule
@@ -101,6 +107,8 @@ from .tag import Tag
 from .tag_array import TagArray
 from .tags_envelope import TagsEnvelope
 from .token import Token
+from .token_info import TokenInfo
+from .token_info_success_response import TokenInfoSuccessResponse
 from .token_request import TokenRequest
 from .token_response import TokenResponse
 from .unregister_device_response import UnregisterDeviceResponse

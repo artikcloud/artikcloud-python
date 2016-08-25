@@ -27,10 +27,13 @@ from __future__ import absolute_import
 # import models into sdk package
 from .models.ack_envelope import AckEnvelope
 from .models.acknowledgement import Acknowledgement
+from .models.action import Action
+from .models.action_array import ActionArray
 from .models.action_details import ActionDetails
 from .models.action_details_array import ActionDetailsArray
 from .models.action_in import ActionIn
 from .models.action_out import ActionOut
+from .models.actions import Actions
 from .models.aggregate_data import AggregateData
 from .models.aggregates_histogram_data import AggregatesHistogramData
 from .models.aggregates_histogram_response import AggregatesHistogramResponse
@@ -73,12 +76,15 @@ from .models.manifest_properties import ManifestProperties
 from .models.manifest_properties_envelope import ManifestPropertiesEnvelope
 from .models.manifest_versions import ManifestVersions
 from .models.manifest_versions_envelope import ManifestVersionsEnvelope
+from .models.message import Message
 from .models.message_action import MessageAction
 from .models.message_id import MessageID
 from .models.message_id_envelope import MessageIDEnvelope
 from .models.message_in import MessageIn
 from .models.message_out import MessageOut
 from .models.non_empty_string import NonEmptyString
+from .models.normalized_action import NormalizedAction
+from .models.normalized_actions_envelope import NormalizedActionsEnvelope
 from .models.normalized_message import NormalizedMessage
 from .models.normalized_messages_envelope import NormalizedMessagesEnvelope
 from .models.output_rule import OutputRule
@@ -101,6 +107,8 @@ from .models.tag import Tag
 from .models.tag_array import TagArray
 from .models.tags_envelope import TagsEnvelope
 from .models.token import Token
+from .models.token_info import TokenInfo
+from .models.token_info_success_response import TokenInfoSuccessResponse
 from .models.token_request import TokenRequest
 from .models.token_response import TokenResponse
 from .models.unregister_device_response import UnregisterDeviceResponse

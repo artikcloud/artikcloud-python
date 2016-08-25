@@ -642,6 +642,135 @@ class MessagesApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
+    def get_normalized_actions(self, **kwargs):
+        """
+        Get Normalized Actions
+        Get the actions normalized
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_normalized_actions(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str uid: User ID. If not specified, assume that of the current authenticated user. If specified, it must be that of a user for which the current authenticated user has read access to.
+        :param str ddid: Destination device ID of the actions being searched.
+        :param str mid: The message ID being searched.
+        :param str offset: A string that represents the starting item, should be the value of 'next' field received in the last response. (required for pagination)
+        :param int count: count
+        :param int start_date: startDate
+        :param int end_date: endDate
+        :param str order: Desired sort order: 'asc' or 'desc'
+        :return: NormalizedActionsEnvelope
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_normalized_actions_with_http_info(**kwargs)
+        else:
+            (data) = self.get_normalized_actions_with_http_info(**kwargs)
+            return data
+
+    def get_normalized_actions_with_http_info(self, **kwargs):
+        """
+        Get Normalized Actions
+        Get the actions normalized
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_normalized_actions_with_http_info(callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str uid: User ID. If not specified, assume that of the current authenticated user. If specified, it must be that of a user for which the current authenticated user has read access to.
+        :param str ddid: Destination device ID of the actions being searched.
+        :param str mid: The message ID being searched.
+        :param str offset: A string that represents the starting item, should be the value of 'next' field received in the last response. (required for pagination)
+        :param int count: count
+        :param int start_date: startDate
+        :param int end_date: endDate
+        :param str order: Desired sort order: 'asc' or 'desc'
+        :return: NormalizedActionsEnvelope
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['uid', 'ddid', 'mid', 'offset', 'count', 'start_date', 'end_date', 'order']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_normalized_actions" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        resource_path = '/actions'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'uid' in params:
+            query_params['uid'] = params['uid']
+        if 'ddid' in params:
+            query_params['ddid'] = params['ddid']
+        if 'mid' in params:
+            query_params['mid'] = params['mid']
+        if 'offset' in params:
+            query_params['offset'] = params['offset']
+        if 'count' in params:
+            query_params['count'] = params['count']
+        if 'start_date' in params:
+            query_params['startDate'] = params['start_date']
+        if 'end_date' in params:
+            query_params['endDate'] = params['end_date']
+        if 'order' in params:
+            query_params['order'] = params['order']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['artikcloud_oauth']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='NormalizedActionsEnvelope',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
     def get_normalized_messages(self, **kwargs):
         """
         Get Normalized Messages
@@ -659,7 +788,7 @@ class MessagesApi(object):
             for asynchronous request. (optional)
         :param str uid: User ID. If not specified, assume that of the current authenticated user. If specified, it must be that of a user for which the current authenticated user has read access to.
         :param str sdid: Source device ID of the messages being searched.
-        :param str mid: The SAMI message ID being searched.
+        :param str mid: The message ID being searched.
         :param str field_presence: String representing a field from the specified device ID.
         :param str filter: Filter.
         :param str offset: A string that represents the starting item, should be the value of 'next' field received in the last response. (required for pagination)
@@ -695,7 +824,7 @@ class MessagesApi(object):
             for asynchronous request. (optional)
         :param str uid: User ID. If not specified, assume that of the current authenticated user. If specified, it must be that of a user for which the current authenticated user has read access to.
         :param str sdid: Source device ID of the messages being searched.
-        :param str mid: The SAMI message ID being searched.
+        :param str mid: The message ID being searched.
         :param str field_presence: String representing a field from the specified device ID.
         :param str filter: Filter.
         :param str offset: A string that represents the starting item, should be the value of 'next' field received in the last response. (required for pagination)
@@ -779,10 +908,10 @@ class MessagesApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
-    def send_message_action(self, data, **kwargs):
+    def send_actions(self, data, **kwargs):
         """
-        Send Message Action
-        (Deprecated) Send a message or an Action:<br/><table><tr><th>Combination</th><th>Parameters</th><th>Description</th></tr><tr><td>Send Message</td><td>sdid, type=message</td><td>Send a message from a Source Device</td></tr><tr><td>Send Action</td><td>ddid, type=action</td><td>Send an action to a Destination Device</td></tr><tr><td>Common</td><td>data, ts, token</td><td>Parameters that can be used with the above combinations.</td></tr></table>
+        Send Actions
+        Send Actions
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -790,26 +919,26 @@ class MessagesApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.send_message_action(data, callback=callback_function)
+        >>> thread = api.send_actions(data, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param MessageAction data: Message or Action object that is passed in the body (required)
+        :param Actions data: Actions that are passed in the body (required)
         :return: MessageIDEnvelope
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.send_message_action_with_http_info(data, **kwargs)
+            return self.send_actions_with_http_info(data, **kwargs)
         else:
-            (data) = self.send_message_action_with_http_info(data, **kwargs)
+            (data) = self.send_actions_with_http_info(data, **kwargs)
             return data
 
-    def send_message_action_with_http_info(self, data, **kwargs):
+    def send_actions_with_http_info(self, data, **kwargs):
         """
-        Send Message Action
-        (Deprecated) Send a message or an Action:<br/><table><tr><th>Combination</th><th>Parameters</th><th>Description</th></tr><tr><td>Send Message</td><td>sdid, type=message</td><td>Send a message from a Source Device</td></tr><tr><td>Send Action</td><td>ddid, type=action</td><td>Send an action to a Destination Device</td></tr><tr><td>Common</td><td>data, ts, token</td><td>Parameters that can be used with the above combinations.</td></tr></table>
+        Send Actions
+        Send Actions
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -817,11 +946,11 @@ class MessagesApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.send_message_action_with_http_info(data, callback=callback_function)
+        >>> thread = api.send_actions_with_http_info(data, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param MessageAction data: Message or Action object that is passed in the body (required)
+        :param Actions data: Actions that are passed in the body (required)
         :return: MessageIDEnvelope
                  If the method is called asynchronously,
                  returns the request thread.
@@ -836,13 +965,117 @@ class MessagesApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method send_message_action" % key
+                    " to method send_actions" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'data' is set
         if ('data' not in params) or (params['data'] is None):
-            raise ValueError("Missing the required parameter `data` when calling `send_message_action`")
+            raise ValueError("Missing the required parameter `data` when calling `send_actions`")
+
+        resource_path = '/actions'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data' in params:
+            body_params = params['data']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['artikcloud_oauth']
+
+        return self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='MessageIDEnvelope',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def send_message(self, data, **kwargs):
+        """
+        Send Message
+        Send a message
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.send_message(data, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param Message data: Message object that is passed in the body (required)
+        :return: MessageIDEnvelope
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.send_message_with_http_info(data, **kwargs)
+        else:
+            (data) = self.send_message_with_http_info(data, **kwargs)
+            return data
+
+    def send_message_with_http_info(self, data, **kwargs):
+        """
+        Send Message
+        Send a message
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.send_message_with_http_info(data, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param Message data: Message object that is passed in the body (required)
+        :return: MessageIDEnvelope
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['data']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method send_message" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'data' is set
+        if ('data' not in params) or (params['data'] is None):
+            raise ValueError("Missing the required parameter `data` when calling `send_message`")
 
         resource_path = '/messages'.replace('{format}', 'json')
         path_params = {}

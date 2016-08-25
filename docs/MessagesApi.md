@@ -9,8 +9,10 @@ Method | HTTP request | Description
 [**get_last_normalized_messages**](MessagesApi.md#get_last_normalized_messages) | **GET** /messages/last | Get Last Normalized Message
 [**get_message_aggregates**](MessagesApi.md#get_message_aggregates) | **GET** /messages/analytics/aggregates | Get Normalized Message Aggregates
 [**get_message_snapshots**](MessagesApi.md#get_message_snapshots) | **GET** /messages/snapshots | Get Message Snapshots
+[**get_normalized_actions**](MessagesApi.md#get_normalized_actions) | **GET** /actions | Get Normalized Actions
 [**get_normalized_messages**](MessagesApi.md#get_normalized_messages) | **GET** /messages | Get Normalized Messages
-[**send_message_action**](MessagesApi.md#send_message_action) | **POST** /messages | Send Message Action
+[**send_actions**](MessagesApi.md#send_actions) | **POST** /actions | Send Actions
+[**send_message**](MessagesApi.md#send_message) | **POST** /messages | Send Message
 
 
 # **get_aggregates_histogram**
@@ -291,6 +293,70 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_normalized_actions**
+> NormalizedActionsEnvelope get_normalized_actions(uid=uid, ddid=ddid, mid=mid, offset=offset, count=count, start_date=start_date, end_date=end_date, order=order)
+
+Get Normalized Actions
+
+Get the actions normalized
+
+### Example 
+```python
+import time
+import artikcloud
+from artikcloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: artikcloud_oauth
+artikcloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = artikcloud.MessagesApi()
+uid = 'uid_example' # str | User ID. If not specified, assume that of the current authenticated user. If specified, it must be that of a user for which the current authenticated user has read access to. (optional)
+ddid = 'ddid_example' # str | Destination device ID of the actions being searched. (optional)
+mid = 'mid_example' # str | The message ID being searched. (optional)
+offset = 'offset_example' # str | A string that represents the starting item, should be the value of 'next' field received in the last response. (required for pagination) (optional)
+count = 56 # int | count (optional)
+start_date = 789 # int | startDate (optional)
+end_date = 789 # int | endDate (optional)
+order = 'order_example' # str | Desired sort order: 'asc' or 'desc' (optional)
+
+try: 
+    # Get Normalized Actions
+    api_response = api_instance.get_normalized_actions(uid=uid, ddid=ddid, mid=mid, offset=offset, count=count, start_date=start_date, end_date=end_date, order=order)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling MessagesApi->get_normalized_actions: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uid** | **str**| User ID. If not specified, assume that of the current authenticated user. If specified, it must be that of a user for which the current authenticated user has read access to. | [optional] 
+ **ddid** | **str**| Destination device ID of the actions being searched. | [optional] 
+ **mid** | **str**| The message ID being searched. | [optional] 
+ **offset** | **str**| A string that represents the starting item, should be the value of &#39;next&#39; field received in the last response. (required for pagination) | [optional] 
+ **count** | **int**| count | [optional] 
+ **start_date** | **int**| startDate | [optional] 
+ **end_date** | **int**| endDate | [optional] 
+ **order** | **str**| Desired sort order: &#39;asc&#39; or &#39;desc&#39; | [optional] 
+
+### Return type
+
+[**NormalizedActionsEnvelope**](NormalizedActionsEnvelope.md)
+
+### Authorization
+
+[artikcloud_oauth](../README.md#artikcloud_oauth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_normalized_messages**
 > NormalizedMessagesEnvelope get_normalized_messages(uid=uid, sdid=sdid, mid=mid, field_presence=field_presence, filter=filter, offset=offset, count=count, start_date=start_date, end_date=end_date, order=order)
 
@@ -312,7 +378,7 @@ artikcloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 api_instance = artikcloud.MessagesApi()
 uid = 'uid_example' # str | User ID. If not specified, assume that of the current authenticated user. If specified, it must be that of a user for which the current authenticated user has read access to. (optional)
 sdid = 'sdid_example' # str | Source device ID of the messages being searched. (optional)
-mid = 'mid_example' # str | The SAMI message ID being searched. (optional)
+mid = 'mid_example' # str | The message ID being searched. (optional)
 field_presence = 'field_presence_example' # str | String representing a field from the specified device ID. (optional)
 filter = 'filter_example' # str | Filter. (optional)
 offset = 'offset_example' # str | A string that represents the starting item, should be the value of 'next' field received in the last response. (required for pagination) (optional)
@@ -335,7 +401,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uid** | **str**| User ID. If not specified, assume that of the current authenticated user. If specified, it must be that of a user for which the current authenticated user has read access to. | [optional] 
  **sdid** | **str**| Source device ID of the messages being searched. | [optional] 
- **mid** | **str**| The SAMI message ID being searched. | [optional] 
+ **mid** | **str**| The message ID being searched. | [optional] 
  **field_presence** | **str**| String representing a field from the specified device ID. | [optional] 
  **filter** | **str**| Filter. | [optional] 
  **offset** | **str**| A string that represents the starting item, should be the value of &#39;next&#39; field received in the last response. (required for pagination) | [optional] 
@@ -359,12 +425,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **send_message_action**
-> MessageIDEnvelope send_message_action(data)
+# **send_actions**
+> MessageIDEnvelope send_actions(data)
 
-Send Message Action
+Send Actions
 
-(Deprecated) Send a message or an Action:<br/><table><tr><th>Combination</th><th>Parameters</th><th>Description</th></tr><tr><td>Send Message</td><td>sdid, type=message</td><td>Send a message from a Source Device</td></tr><tr><td>Send Action</td><td>ddid, type=action</td><td>Send an action to a Destination Device</td></tr><tr><td>Common</td><td>data, ts, token</td><td>Parameters that can be used with the above combinations.</td></tr></table>
+Send Actions
 
 ### Example 
 ```python
@@ -378,21 +444,71 @@ artikcloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = artikcloud.MessagesApi()
-data = artikcloud.MessageAction() # MessageAction | Message or Action object that is passed in the body
+data = artikcloud.Actions() # Actions | Actions that are passed in the body
 
 try: 
-    # Send Message Action
-    api_response = api_instance.send_message_action(data)
+    # Send Actions
+    api_response = api_instance.send_actions(data)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MessagesApi->send_message_action: %s\n" % e
+    print "Exception when calling MessagesApi->send_actions: %s\n" % e
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**MessageAction**](MessageAction.md)| Message or Action object that is passed in the body | 
+ **data** | [**Actions**](Actions.md)| Actions that are passed in the body | 
+
+### Return type
+
+[**MessageIDEnvelope**](MessageIDEnvelope.md)
+
+### Authorization
+
+[artikcloud_oauth](../README.md#artikcloud_oauth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **send_message**
+> MessageIDEnvelope send_message(data)
+
+Send Message
+
+Send a message
+
+### Example 
+```python
+import time
+import artikcloud
+from artikcloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: artikcloud_oauth
+artikcloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = artikcloud.MessagesApi()
+data = artikcloud.Message() # Message | Message object that is passed in the body
+
+try: 
+    # Send Message
+    api_response = api_instance.send_message(data)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling MessagesApi->send_message: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **data** | [**Message**](Message.md)| Message object that is passed in the body | 
 
 ### Return type
 

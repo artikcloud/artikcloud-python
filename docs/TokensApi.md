@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**check_token**](TokensApi.md#check_token) | **POST** /accounts/checkToken | Check Token
 [**refresh_token**](TokensApi.md#refresh_token) | **POST** /accounts/token | Refresh Token
+[**token_info**](TokensApi.md#token_info) | **GET** /accounts/tokenInfo | Token Info
 
 
 # **check_token**
@@ -106,6 +107,52 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **token_info**
+> TokenInfoSuccessResponse token_info()
+
+Token Info
+
+Returns the Token Information
+
+### Example 
+```python
+import time
+import artikcloud
+from artikcloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: artikcloud_oauth
+artikcloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = artikcloud.TokensApi()
+
+try: 
+    # Token Info
+    api_response = api_instance.token_info()
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling TokensApi->token_info: %s\n" % e
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**TokenInfoSuccessResponse**](TokenInfoSuccessResponse.md)
+
+### Authorization
+
+[artikcloud_oauth](../README.md#artikcloud_oauth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
