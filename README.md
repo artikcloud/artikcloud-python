@@ -50,17 +50,17 @@ from pprint import pprint
 
 # Configure OAuth2 access token for authorization: artikcloud_oauth
 artikcloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = artikcloud.DeviceTypesApi
+api_instance = artikcloud.DeviceTypesApi()
 device_type_id = 'device_type_id_example' # str | deviceTypeId
 
-try:
+try: 
     # Get Available Manifest Versions
     api_response = api_instance.get_available_manifest_versions(device_type_id)
     pprint(api_response)
 except ApiException as e:
     print "Exception when calling DeviceTypesApi->get_available_manifest_versions: %s\n" % e
-
 ```
 
 ## Documentation for API Endpoints
