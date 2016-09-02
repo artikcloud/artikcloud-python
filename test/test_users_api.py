@@ -31,18 +31,19 @@ import unittest
 import artikcloud
 from artikcloud.rest import ApiException
 from artikcloud.apis.users_api import UsersApi
+from artikcloud.models.app_properties import AppProperties
+from test.test_artik_base import TestArtikBase
 
 
-class TestUsersApi(unittest.TestCase):
+class TestUsersApi(TestArtikBase):
     """ UsersApi unit test stubs """
 
     def setUp(self):
         configuration = artikcloud.Configuration();
-        configuration.access_token = "fa460261b858484583097ecb331faaa8"
-        self.users_api = UsersApi()
-        self.user_id = self.users_api.get_self().data.id
-        print(self.user_id)
-        pass
+        configuration.access_token = self.properties['user1.token']
+
+        self.api = UsersApi()
+        self.user_id = self.api.get_self().data.id
 
     def tearDown(self):
         pass
@@ -69,12 +70,18 @@ class TestUsersApi(unittest.TestCase):
 
         Get Current User Profile
         """
-        response = self.users_api.get_self()
+        response = self.api.get_self()
         self.assertIsNotNone(response)
-        self.assertEqual(response.data.name, "maneesh")
-        self.assertEqual(response.data.full_name, "Maneesh Sahu")
-        self.assertEqual(response.data.email, "maneesh.sahu@ssi.samsung.com")
-        pass
+
+        user = response.data
+
+        self.assertEqual(user.email, self.properties['user1.email'])
+        self.assertEqual(user.id, self.properties['user1.id'])
+        self.assertEqual(user.name, self.properties['user1.name'])
+        self.assertEqual(user.full_name, self.properties['user1.fullname'])
+        self.assertEqual(user.created_on, int(self.properties['user1.createdon']))
+
+        self.assertIsNotNone(user.modified_on)
 
     def test_get_self_async(self):
         """
@@ -88,11 +95,10 @@ class TestUsersApi(unittest.TestCase):
             self.assertEqual(response.data.full_name, "Maneesh Sahu")
             self.assertEqual(response.data.email, "maneesh.sahu@ssi.samsung.com")
 
-        thread = self.users_api.get_self(callback=callback_function)
+        thread = self.api.get_self(callback=callback_function)
         thread.join(10)
         if thread.isAlive():
             self.fail("Request timeout")
-        pass
 
     def test_get_user_device_types(self):
         """
@@ -100,7 +106,11 @@ class TestUsersApi(unittest.TestCase):
 
         Get User Device Types
         """
-        pass
+        response = self.api.get_user_device_types(user_id=self.user_id)
+
+        self.assertIsNotNone(response)
+        self.assertIsNotNone(response.data)
+        self.assertIsNotNone(response.data.device_types)
 
     def test_get_user_devices(self):
         """
@@ -108,18 +118,49 @@ class TestUsersApi(unittest.TestCase):
 
         Get User Devices
         """
-        response = self.users_api.get_user_devices(user_id=self.user_id)
+        response = self.api.get_user_devices(user_id=self.user_id)
+
         self.assertIsNotNone(response)
         self.assertIsNotNone(response.data)
-        pass
+        self.assertIsNotNone(response.data.devices)
 
-    def test_get_user_properties(self):
+    def test_user_properties(self):
         """
         Test case for get_user_properties
 
         Get User application properties
         """
-        pass
+        aid = self.properties['user1.aid']
+        user_properties = None
+
+        try:
+             user_properties = self.api.get_user_properties(user_id=self.user_id, aid=aid)
+
+        except ApiException as ex:
+
+            if ex.status == 404:
+
+                app_properties = AppProperties(properties='abc=def')
+
+                user_properties = self.api.create_user_properties(user_id=self.user_id, properties=app_properties, aid=aid)
+
+            else:
+                self.assertFail('Non-404 Error returned by API')
+
+        self.assertIsNotNone(user_properties)
+
+        # Update
+        app_properties2 = AppProperties(properties='mno=pqr')
+        user_properties2 = self.api.update_user_properties(user_id=self.user_id, properties=app_properties2, aid=aid)
+
+        self.assertIsNotNone(user_properties2)
+        self.assertEqual('mno=pqr', user_properties2.data.properties, 'Properties must be the same')
+
+        # Delete
+        user_properties3 = self.api.delete_user_properties(user_id=self.user_id, aid=aid)
+        self.assertIsNotNone(user_properties3)
+        self.assertEqual(user_properties2, user_properties3)
+
 
     def test_get_user_rules(self):
         """
@@ -127,7 +168,10 @@ class TestUsersApi(unittest.TestCase):
 
         Get User Rules
         """
-        pass
+        response = self.api.get_user_rules(user_id=self.user_id, exclude_disabled=False)
+
+        self.assertIsNotNone(response)
+        self.assertIsNotNone(response.data)
 
     def test_update_user_properties(self):
         """

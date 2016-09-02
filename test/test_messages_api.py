@@ -30,15 +30,18 @@ import unittest
 import artikcloud
 from artikcloud.rest import ApiException
 from artikcloud.apis.messages_api import MessagesApi
+from artikcloud.models.action import Action
+from artikcloud.models.actions import Actions
+from artikcloud.models.action_array import ActionArray
+from test.test_artik_base import TestArtikBase
 
-class TestMessagesApi(unittest.TestCase):
+class TestMessagesApi(TestArtikBase):
     """ MessagesApi unit test stubs """
 
     def setUp(self):
         configuration = artikcloud.Configuration();
-        configuration.access_token = "dc43d12e2b59495daf94631e6ddfe3e8"
-        self.messages_api = MessagesApi()
-        pass
+        configuration.access_token = self.properties['device1.token']
+        self.api = MessagesApi()
 
     def tearDown(self):
         pass
@@ -81,7 +84,15 @@ class TestMessagesApi(unittest.TestCase):
 
         Get Message Snapshots
         """
-        pass
+        sdids = self.properties['device1.id']
+
+        env = self.api.get_message_snapshots(sdids, include_timestamp=False)
+
+        self.assertEqual(sdids, env.sdids, 'SDIDs must match')
+        self.assertEqual(sdids, env.data[0].sdid, 'SDID must match')
+
+        steps_info = env.data[0].data['steps']
+        self.assertEqual(500.0, steps_info['value'], 'Steps must be 500')
 
     def test_get_normalized_actions(self):
         """
@@ -105,7 +116,40 @@ class TestMessagesApi(unittest.TestCase):
 
         Send Actions
         """
-        pass
+        ddid = self.properties['device4.id']
+
+        configuration = artikcloud.Configuration();
+        configuration.access_token = self.properties['device4.token']
+        api = MessagesApi()
+
+        action = Action()
+        action.name = 'setVolume'
+        action.parameters = {'volume': 5}
+
+        action_array = ActionArray()
+        action_array.actions = [ action ]
+
+        actions = Actions()
+        actions.ddid = ddid
+        actions.ts = int(round(time.time() * 1000))
+        actions.data = action_array
+
+        mid = api.send_actions(actions).data.mid
+
+        time.sleep(2)
+
+        envelope = api.get_normalized_actions(mid=mid)
+        self.assertEqual(1, envelope.size)
+
+        normalized = envelope.data[0]
+        action_rx = normalized.data.actions[0]
+
+        self.assertEqual('setVolume', action_rx.name)
+        volume = action_rx.parameters['volume']
+
+        self.assertIsNotNone(volume, 'Volume should not be None')
+        self.assertEqual(5.0, volume)
+
 
     def test_send_message(self):
         """
@@ -115,18 +159,18 @@ class TestMessagesApi(unittest.TestCase):
         """
         message = artikcloud.Message()
         message.type = "message"
-        message.sdid = "19da42ee01414722a6ad1224097c38d4"
+        message.sdid = self.properties['device1.id']
         message.ts = int(round(time.time() * 1000))
-        message.data = {'steps': 5}
+        message.data = {'steps': 500}
 
-        response = self.messages_api.send_message(message)
+        response = self.api.send_message(message)
         self.assertIsNotNone(response)
         messageid = response.data.mid
-        self.assertIsNotNone(messageid)
+        self.assertIsNotNone(messageid, 'Message ID should not be None')
 
         # get normalized message from mid
         time.sleep(1)
-        envelope = self.messages_api.get_normalized_messages(mid=messageid)
+        envelope = self.api.get_normalized_messages(mid=messageid)
         self.assertIsNotNone(envelope)
         self.assertEqual(envelope.size, 1)
 
@@ -136,8 +180,7 @@ class TestMessagesApi(unittest.TestCase):
 
         steps = normalized.data['steps']
         self.assertIsNotNone(steps)
-        self.assertEqual(steps, 5.0)
-        pass
+        self.assertEqual(steps, 500.0)
 
 
 if __name__ == '__main__':
