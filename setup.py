@@ -26,7 +26,7 @@ import sys
 from setuptools import setup, find_packages
 
 NAME = "artikcloud"
-VERSION = "2.0.5"
+VERSION = "2.0.6-SNAPSHOT"
 
 # To install the library, run the following
 #

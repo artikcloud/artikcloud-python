@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**get_available_manifest_versions**](DeviceTypesApi.md#get_available_manifest_versions) | **GET** /devicetypes/{deviceTypeId}/availablemanifestversions | Get Available Manifest Versions
 [**get_device_type**](DeviceTypesApi.md#get_device_type) | **GET** /devicetypes/{deviceTypeId} | Get Device Type
 [**get_device_types**](DeviceTypesApi.md#get_device_types) | **GET** /devicetypes | Get Device Types
+[**get_device_types_by_application**](DeviceTypesApi.md#get_device_types_by_application) | **GET** /applications/{appId}/devicetypes | Get Device Types by Application
 [**get_latest_manifest_properties**](DeviceTypesApi.md#get_latest_manifest_properties) | **GET** /devicetypes/{deviceTypeId}/manifests/latest/properties | Get Latest Manifest Properties
 [**get_manifest_properties**](DeviceTypesApi.md#get_manifest_properties) | **GET** /devicetypes/{deviceTypeId}/manifests/{version}/properties | Get manifest properties
 
@@ -151,6 +152,62 @@ Name | Type | Description  | Notes
  **offset** | **int**| Offset for pagination. | [optional] 
  **count** | **int**| Desired count of items in the result set | [optional] 
  **tags** | **str**| Elements tagged with the list of tags. (comma separated) | [optional] 
+
+### Return type
+
+[**DeviceTypesEnvelope**](DeviceTypesEnvelope.md)
+
+### Authorization
+
+[artikcloud_oauth](../README.md#artikcloud_oauth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_device_types_by_application**
+> DeviceTypesEnvelope get_device_types_by_application(app_id, product_info=product_info, count=count, offset=offset)
+
+Get Device Types by Application
+
+Get Device Types by Application
+
+### Example 
+```python
+import time
+import artikcloud
+from artikcloud.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: artikcloud_oauth
+artikcloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = artikcloud.DeviceTypesApi()
+app_id = 'app_id_example' # str | Application ID.
+product_info = true # bool | Flag to include the associated ProductInfo if present (optional)
+count = 56 # int | Desired count of items in the result set. (optional)
+offset = 56 # int | Offset for pagination. (optional)
+
+try: 
+    # Get Device Types by Application
+    api_response = api_instance.get_device_types_by_application(app_id, product_info=product_info, count=count, offset=offset)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling DeviceTypesApi->get_device_types_by_application: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **app_id** | **str**| Application ID. | 
+ **product_info** | **bool**| Flag to include the associated ProductInfo if present | [optional] 
+ **count** | **int**| Desired count of items in the result set. | [optional] 
+ **offset** | **int**| Offset for pagination. | [optional] 
 
 ### Return type
 

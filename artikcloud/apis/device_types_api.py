@@ -375,6 +375,122 @@ class DeviceTypesApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
+    def get_device_types_by_application(self, app_id, **kwargs):
+        """
+        Get Device Types by Application
+        Get Device Types by Application
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_device_types_by_application(app_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str app_id: Application ID. (required)
+        :param bool product_info: Flag to include the associated ProductInfo if present
+        :param int count: Desired count of items in the result set.
+        :param int offset: Offset for pagination.
+        :return: DeviceTypesEnvelope
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_device_types_by_application_with_http_info(app_id, **kwargs)
+        else:
+            (data) = self.get_device_types_by_application_with_http_info(app_id, **kwargs)
+            return data
+
+    def get_device_types_by_application_with_http_info(self, app_id, **kwargs):
+        """
+        Get Device Types by Application
+        Get Device Types by Application
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_device_types_by_application_with_http_info(app_id, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str app_id: Application ID. (required)
+        :param bool product_info: Flag to include the associated ProductInfo if present
+        :param int count: Desired count of items in the result set.
+        :param int offset: Offset for pagination.
+        :return: DeviceTypesEnvelope
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['app_id', 'product_info', 'count', 'offset']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_device_types_by_application" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'app_id' is set
+        if ('app_id' not in params) or (params['app_id'] is None):
+            raise ValueError("Missing the required parameter `app_id` when calling `get_device_types_by_application`")
+
+        resource_path = '/applications/{appId}/devicetypes'.replace('{format}', 'json')
+        path_params = {}
+        if 'app_id' in params:
+            path_params['appId'] = params['app_id']
+
+        query_params = {}
+        if 'product_info' in params:
+            query_params['productInfo'] = params['product_info']
+        if 'count' in params:
+            query_params['count'] = params['count']
+        if 'offset' in params:
+            query_params['offset'] = params['offset']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = ['artikcloud_oauth']
+
+        return self.api_client.call_api(resource_path, 'GET',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='DeviceTypesEnvelope',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
     def get_latest_manifest_properties(self, device_type_id, **kwargs):
         """
         Get Latest Manifest Properties
