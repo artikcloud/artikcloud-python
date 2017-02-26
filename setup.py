@@ -41,7 +41,7 @@ setup(
     name=NAME,
     version=VERSION,
     description="ARTIK Cloud API",
-    author_email="",
+    author_email="developer@artik.cloud",
     url="",
     keywords=["ARTIK Cloud API"],
     install_requires=REQUIRES,
