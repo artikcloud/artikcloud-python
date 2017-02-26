@@ -26,7 +26,7 @@ import sys
 from setuptools import setup, find_packages
 
 NAME = "artikcloud"
-VERSION = "2.0.5"
+VERSION = "2.0.8"
 
 # To install the library, run the following
 #
@@ -43,7 +43,7 @@ setup(
     description="ARTIK Cloud API",
     author_email="",
     url="",
-    keywords=["Swagger", "ARTIK Cloud API"],
+    keywords=["ARTIK Cloud API"],
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True,
