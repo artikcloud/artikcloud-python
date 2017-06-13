@@ -18,6 +18,7 @@ This call updates the registration request issued earlier by associating it with
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -35,7 +36,7 @@ try:
     api_response = api_instance.confirm_user(registration_info)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling RegistrationsApi->confirm_user: %s\n" % e
+    print("Exception when calling RegistrationsApi->confirm_user: %s\n" % e)
 ```
 
 ### Parameters
@@ -68,6 +69,7 @@ This call checks the status of the request so users can poll and know when regis
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -85,7 +87,7 @@ try:
     api_response = api_instance.get_request_status_for_user(request_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling RegistrationsApi->get_request_status_for_user: %s\n" % e
+    print("Exception when calling RegistrationsApi->get_request_status_for_user: %s\n" % e)
 ```
 
 ### Parameters
@@ -118,6 +120,7 @@ This call clears any associations from the secure device registration.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -135,7 +138,7 @@ try:
     api_response = api_instance.unregister_device(device_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling RegistrationsApi->unregister_device: %s\n" % e
+    print("Exception when calling RegistrationsApi->unregister_device: %s\n" % e)
 ```
 
 ### Parameters

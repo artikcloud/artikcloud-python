@@ -19,6 +19,7 @@ Create a new Rule
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -37,7 +38,7 @@ try:
     api_response = api_instance.create_rule(rule_info, user_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling RulesApi->create_rule: %s\n" % e
+    print("Exception when calling RulesApi->create_rule: %s\n" % e)
 ```
 
 ### Parameters
@@ -71,6 +72,7 @@ Delete a Rule
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -88,7 +90,7 @@ try:
     api_response = api_instance.delete_rule(rule_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling RulesApi->delete_rule: %s\n" % e
+    print("Exception when calling RulesApi->delete_rule: %s\n" % e)
 ```
 
 ### Parameters
@@ -121,6 +123,7 @@ Get a rule using the Rule ID
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -138,7 +141,7 @@ try:
     api_response = api_instance.get_rule(rule_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling RulesApi->get_rule: %s\n" % e
+    print("Exception when calling RulesApi->get_rule: %s\n" % e)
 ```
 
 ### Parameters
@@ -171,6 +174,7 @@ Update an existing Rule
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -189,7 +193,7 @@ try:
     api_response = api_instance.update_rule(rule_id, rule_info)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling RulesApi->update_rule: %s\n" % e
+    print("Exception when calling RulesApi->update_rule: %s\n" % e)
 ```
 
 ### Parameters

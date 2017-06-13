@@ -24,6 +24,7 @@ Get Histogram on normalized messages.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -45,7 +46,7 @@ try:
     api_response = api_instance.get_aggregates_histogram(start_date, end_date, sdid=sdid, field=field, interval=interval)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MessagesApi->get_aggregates_histogram: %s\n" % e
+    print("Exception when calling MessagesApi->get_aggregates_histogram: %s\n" % e)
 ```
 
 ### Parameters
@@ -82,6 +83,7 @@ Get normalized message presence.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -103,7 +105,7 @@ try:
     api_response = api_instance.get_field_presence(start_date, end_date, interval, sdid=sdid, field_presence=field_presence)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MessagesApi->get_field_presence: %s\n" % e
+    print("Exception when calling MessagesApi->get_field_presence: %s\n" % e)
 ```
 
 ### Parameters
@@ -140,6 +142,7 @@ Get last messages normalized.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -159,7 +162,7 @@ try:
     api_response = api_instance.get_last_normalized_messages(count=count, sdids=sdids, field_presence=field_presence)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MessagesApi->get_last_normalized_messages: %s\n" % e
+    print("Exception when calling MessagesApi->get_last_normalized_messages: %s\n" % e)
 ```
 
 ### Parameters
@@ -194,6 +197,7 @@ Get Aggregates on normalized messages.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -214,7 +218,7 @@ try:
     api_response = api_instance.get_message_aggregates(sdid, field, start_date, end_date)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MessagesApi->get_message_aggregates: %s\n" % e
+    print("Exception when calling MessagesApi->get_message_aggregates: %s\n" % e)
 ```
 
 ### Parameters
@@ -250,6 +254,7 @@ Get message snapshots.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -268,7 +273,7 @@ try:
     api_response = api_instance.get_message_snapshots(sdids, include_timestamp=include_timestamp)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MessagesApi->get_message_snapshots: %s\n" % e
+    print("Exception when calling MessagesApi->get_message_snapshots: %s\n" % e)
 ```
 
 ### Parameters
@@ -302,6 +307,7 @@ Get the actions normalized
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -326,7 +332,7 @@ try:
     api_response = api_instance.get_normalized_actions(uid=uid, ddid=ddid, mid=mid, offset=offset, count=count, start_date=start_date, end_date=end_date, order=order)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MessagesApi->get_normalized_actions: %s\n" % e
+    print("Exception when calling MessagesApi->get_normalized_actions: %s\n" % e)
 ```
 
 ### Parameters
@@ -366,6 +372,7 @@ Get the messages normalized
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -392,7 +399,7 @@ try:
     api_response = api_instance.get_normalized_messages(uid=uid, sdid=sdid, mid=mid, field_presence=field_presence, filter=filter, offset=offset, count=count, start_date=start_date, end_date=end_date, order=order)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MessagesApi->get_normalized_messages: %s\n" % e
+    print("Exception when calling MessagesApi->get_normalized_messages: %s\n" % e)
 ```
 
 ### Parameters
@@ -434,6 +441,7 @@ Send Actions
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -451,7 +459,7 @@ try:
     api_response = api_instance.send_actions(data)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MessagesApi->send_actions: %s\n" % e
+    print("Exception when calling MessagesApi->send_actions: %s\n" % e)
 ```
 
 ### Parameters
@@ -484,6 +492,7 @@ Send a message
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -501,7 +510,7 @@ try:
     api_response = api_instance.send_message(data)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling MessagesApi->send_message: %s\n" % e
+    print("Exception when calling MessagesApi->send_message: %s\n" % e)
 ```
 
 ### Parameters

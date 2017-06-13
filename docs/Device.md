@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 **certificate_signature** | **str** | Certificate Signature (if any) | [optional] 
 **eid** | **str** | External ID (if any) | [optional] 
 **provider_credentials** | **dict(str, object)** |  | [optional] 
+**shared_with_others** | **bool** | Is shared with other users | [optional] 
+**shared_with_me** | **str** | Share id (if shared with me) | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

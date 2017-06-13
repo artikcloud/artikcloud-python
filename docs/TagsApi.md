@@ -18,6 +18,7 @@ Get all tags marked as categories
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -34,7 +35,7 @@ try:
     api_response = api_instance.get_tag_categories()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling TagsApi->get_tag_categories: %s\n" % e
+    print("Exception when calling TagsApi->get_tag_categories: %s\n" % e)
 ```
 
 ### Parameters
@@ -64,6 +65,7 @@ Get tag suggestions for applications, device types that have been most used with
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -84,7 +86,7 @@ try:
     api_response = api_instance.get_tag_suggestions(entity_type=entity_type, tags=tags, name=name, count=count)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling TagsApi->get_tag_suggestions: %s\n" % e
+    print("Exception when calling TagsApi->get_tag_suggestions: %s\n" % e)
 ```
 
 ### Parameters
@@ -120,6 +122,7 @@ Get all tags related to the list of categories
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -137,7 +140,7 @@ try:
     api_response = api_instance.get_tags_by_categories(categories=categories)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling TagsApi->get_tags_by_categories: %s\n" % e
+    print("Exception when calling TagsApi->get_tags_by_categories: %s\n" % e)
 ```
 
 ### Parameters

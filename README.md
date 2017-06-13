@@ -98,6 +98,13 @@ Class | Method | HTTP request | Description
 *DevicesManagementApi* | [**update_server_properties**](docs/DevicesManagementApi.md#update_server_properties) | **POST** /devicemgmt/devices/{did}/serverproperties | Updates a device&#39;s server properties.
 *DevicesManagementApi* | [**update_task**](docs/DevicesManagementApi.md#update_task) | **PUT** /devicemgmt/tasks/{tid} | Updates a task for all devices - For now just allows changing the state to cancelled.
 *DevicesManagementApi* | [**update_task_for_device**](docs/DevicesManagementApi.md#update_task_for_device) | **PUT** /devicemgmt/tasks/{tid}/devices/{did} | Updates a task for a specific device - For now just allows changing the state to cancelled.
+*DevicessharesApi* | [**create_share_for_device**](docs/DevicessharesApi.md#create_share_for_device) | **POST** in/api/devices/{deviceId}/shares | Share a device 
+*DevicessharesApi* | [**delete_sharing_for_device**](docs/DevicessharesApi.md#delete_sharing_for_device) | **DELETE** in/api/devices/{deviceId}/shares/{shareId} | Delete specific share of the given device id
+*DevicessharesApi* | [**get_all_shares_for_device**](docs/DevicessharesApi.md#get_all_shares_for_device) | **GET** in/api/devices/{deviceId}/shares | List all shares for the given device id
+*DevicessharesApi* | [**get_sharing_for_device**](docs/DevicessharesApi.md#get_sharing_for_device) | **GET** in/api/devices/{deviceId}/shares/{shareId} | Get specific share of the given device id
+*DevicestatusApi* | [**get_device_status**](docs/DevicestatusApi.md#get_device_status) | **GET** /devices/{deviceId}/status | Get Device Status
+*DevicestatusApi* | [**get_devices_status**](docs/DevicestatusApi.md#get_devices_status) | **GET** /devices/status | Get Devices Status
+*DevicestatusApi* | [**put_device_status**](docs/DevicestatusApi.md#put_device_status) | **PUT** /devices/{deviceId}/status | Update Device Status
 *ExportApi* | [**export_request**](docs/ExportApi.md#export_request) | **POST** /messages/export | Create Export Request
 *ExportApi* | [**get_export_history**](docs/ExportApi.md#get_export_history) | **GET** /messages/export/history | Get Export History
 *ExportApi* | [**get_export_result**](docs/ExportApi.md#get_export_result) | **GET** /messages/export/{exportId}/result | Get Export Result
@@ -118,6 +125,12 @@ Class | Method | HTTP request | Description
 *RulesApi* | [**delete_rule**](docs/RulesApi.md#delete_rule) | **DELETE** /rules/{ruleId} | Delete Rule
 *RulesApi* | [**get_rule**](docs/RulesApi.md#get_rule) | **GET** /rules/{ruleId} | Get Rule
 *RulesApi* | [**update_rule**](docs/RulesApi.md#update_rule) | **PUT** /rules/{ruleId} | Update Rule
+*SubscriptionsApi* | [**create_subscription**](docs/SubscriptionsApi.md#create_subscription) | **POST** /subscriptions | Create Subscription
+*SubscriptionsApi* | [**delete_subscription**](docs/SubscriptionsApi.md#delete_subscription) | **DELETE** /subscriptions/{subId} | Delete Subscription
+*SubscriptionsApi* | [**get_all_subscriptions**](docs/SubscriptionsApi.md#get_all_subscriptions) | **GET** /subscriptions | Get All Subscriptions
+*SubscriptionsApi* | [**get_messages**](docs/SubscriptionsApi.md#get_messages) | **GET** /notifications/{notifId}/messages | Get Messages
+*SubscriptionsApi* | [**get_subscription**](docs/SubscriptionsApi.md#get_subscription) | **GET** /subscriptions/{subId} | Get Subscription
+*SubscriptionsApi* | [**validate_subscription**](docs/SubscriptionsApi.md#validate_subscription) | **POST** /subscriptions/{subId}/validate | Validate Subscription
 *TagsApi* | [**get_tag_categories**](docs/TagsApi.md#get_tag_categories) | **GET** /tags/categories | Get all categories
 *TagsApi* | [**get_tag_suggestions**](docs/TagsApi.md#get_tag_suggestions) | **GET** /tags/suggestions | Get tag suggestions
 *TagsApi* | [**get_tags_by_categories**](docs/TagsApi.md#get_tags_by_categories) | **GET** /tags | Get all tags of categories
@@ -131,6 +144,7 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**get_user_devices**](docs/UsersApi.md#get_user_devices) | **GET** /users/{userId}/devices | Get User Devices
 *UsersApi* | [**get_user_properties**](docs/UsersApi.md#get_user_properties) | **GET** /users/{userId}/properties | Get User application properties
 *UsersApi* | [**get_user_rules**](docs/UsersApi.md#get_user_rules) | **GET** /users/{userId}/rules | Get User Rules
+*UsersApi* | [**list_all_shares_for_user**](docs/UsersApi.md#list_all_shares_for_user) | **GET** in/api/users/{userId}/shares | Get User shares
 *UsersApi* | [**update_user_properties**](docs/UsersApi.md#update_user_properties) | **PUT** /users/{userId}/properties | Update User Application Properties
 
 
@@ -161,6 +175,16 @@ Class | Method | HTTP request | Description
  - [DeviceRegConfirmUserResponseEnvelope](docs/DeviceRegConfirmUserResponseEnvelope.md)
  - [DeviceRegStatusResponse](docs/DeviceRegStatusResponse.md)
  - [DeviceRegStatusResponseEnvelope](docs/DeviceRegStatusResponseEnvelope.md)
+ - [DeviceShareInfo](docs/DeviceShareInfo.md)
+ - [DeviceSharing](docs/DeviceSharing.md)
+ - [DeviceSharingArray](docs/DeviceSharingArray.md)
+ - [DeviceSharingEnvelope](docs/DeviceSharingEnvelope.md)
+ - [DeviceSharingId](docs/DeviceSharingId.md)
+ - [DeviceStatus](docs/DeviceStatus.md)
+ - [DeviceStatusBatch](docs/DeviceStatusBatch.md)
+ - [DeviceStatusData](docs/DeviceStatusData.md)
+ - [DeviceStatusPut](docs/DeviceStatusPut.md)
+ - [DeviceStatusPutData](docs/DeviceStatusPutData.md)
  - [DeviceTask](docs/DeviceTask.md)
  - [DeviceTaskUpdateRequest](docs/DeviceTaskUpdateRequest.md)
  - [DeviceTaskUpdateResponse](docs/DeviceTaskUpdateResponse.md)
@@ -209,6 +233,9 @@ Class | Method | HTTP request | Description
  - [NormalizedActionsEnvelope](docs/NormalizedActionsEnvelope.md)
  - [NormalizedMessage](docs/NormalizedMessage.md)
  - [NormalizedMessagesEnvelope](docs/NormalizedMessagesEnvelope.md)
+ - [NotifMessage](docs/NotifMessage.md)
+ - [NotifMessageArray](docs/NotifMessageArray.md)
+ - [NotifMessagesResponse](docs/NotifMessagesResponse.md)
  - [OutputRule](docs/OutputRule.md)
  - [PresenceEnvelope](docs/PresenceEnvelope.md)
  - [PresenceModel](docs/PresenceModel.md)
@@ -225,6 +252,11 @@ Class | Method | HTTP request | Description
  - [SnapshotResponse](docs/SnapshotResponse.md)
  - [SnapshotResponses](docs/SnapshotResponses.md)
  - [SnapshotsResponseEnvelope](docs/SnapshotsResponseEnvelope.md)
+ - [Subscription](docs/Subscription.md)
+ - [SubscriptionArray](docs/SubscriptionArray.md)
+ - [SubscriptionEnvelope](docs/SubscriptionEnvelope.md)
+ - [SubscriptionInfo](docs/SubscriptionInfo.md)
+ - [SubscriptionsEnvelope](docs/SubscriptionsEnvelope.md)
  - [Tag](docs/Tag.md)
  - [TagArray](docs/TagArray.md)
  - [TagsEnvelope](docs/TagsEnvelope.md)
@@ -254,8 +286,10 @@ Class | Method | HTTP request | Description
  - [TokenResponse](docs/TokenResponse.md)
  - [UnregisterDeviceResponse](docs/UnregisterDeviceResponse.md)
  - [UnregisterDeviceResponseEnvelope](docs/UnregisterDeviceResponseEnvelope.md)
+ - [UpdateParameters](docs/UpdateParameters.md)
  - [User](docs/User.md)
  - [UserEnvelope](docs/UserEnvelope.md)
+ - [ValidationCallbackInfo](docs/ValidationCallbackInfo.md)
  - [WebSocketError](docs/WebSocketError.md)
 
 
@@ -271,30 +305,8 @@ Class | Method | HTTP request | Description
  - **read:artikcloud**: Read from ARTIK Cloud
  - **write:artikcloud**: Write from ARTIK Cloud
 
-Usage
-------
 
-Peek into [tests](https://github.com/artikcloud/artikcloud-python/tree/master/test) for examples about how to use the SDK.
-
-More about ARTIK Cloud
-----------------------
-
-If you are not familiar with ARTIK Cloud, we have extensive documentation at https://developer.artik.cloud/documentation
-
-The full ARTIK Cloud API specification can be found at https://developer.artik.cloud/documentation/api-reference/
-
-Check out advanced sample applications at https://developer.artik.cloud/documentation/samples/
-
-To create and manage your services and devices on ARTIK Cloud, create an account at https://developer.artik.cloud
-
-Also see the ARTIK Cloud blog for tutorials, updates, and more: http://artik.io/blog/cloud
-
-License and Copyright
----------------------
-
-Licensed under the Apache License. See [LICENSE](https://github.com/artikcloud/artikcloud-java/blob/master/LICENSE).
-
-Copyright (c) 2016 Samsung Electronics Co., Ltd.
+## Author
 
 
 

@@ -19,6 +19,7 @@ Export normalized messages. The following input combinations are supported:<br/>
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -36,7 +37,7 @@ try:
     api_response = api_instance.export_request(export_request_info)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ExportApi->export_request: %s\n" % e
+    print("Exception when calling ExportApi->export_request: %s\n" % e)
 ```
 
 ### Parameters
@@ -69,6 +70,7 @@ Get the history of export requests.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -88,7 +90,7 @@ try:
     api_response = api_instance.get_export_history(trial_id=trial_id, count=count, offset=offset)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ExportApi->get_export_history: %s\n" % e
+    print("Exception when calling ExportApi->get_export_history: %s\n" % e)
 ```
 
 ### Parameters
@@ -123,6 +125,7 @@ Retrieve result of the export query in tgz format. The tar file may contain one 
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -140,7 +143,7 @@ try:
     api_response = api_instance.get_export_result(export_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ExportApi->get_export_result: %s\n" % e
+    print("Exception when calling ExportApi->get_export_result: %s\n" % e)
 ```
 
 ### Parameters
@@ -173,6 +176,7 @@ Check status of the export query.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -190,7 +194,7 @@ try:
     api_response = api_instance.get_export_status(export_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling ExportApi->get_export_status: %s\n" % e
+    print("Exception when calling ExportApi->get_export_status: %s\n" % e)
 ```
 
 ### Parameters

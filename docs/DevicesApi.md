@@ -23,6 +23,7 @@ Create a device
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -40,7 +41,7 @@ try:
     api_response = api_instance.add_device(device)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DevicesApi->add_device: %s\n" % e
+    print("Exception when calling DevicesApi->add_device: %s\n" % e)
 ```
 
 ### Parameters
@@ -73,6 +74,7 @@ Deletes a device
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -90,7 +92,7 @@ try:
     api_response = api_instance.delete_device(device_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DevicesApi->delete_device: %s\n" % e
+    print("Exception when calling DevicesApi->delete_device: %s\n" % e)
 ```
 
 ### Parameters
@@ -123,6 +125,7 @@ Deletes a device's token
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -140,7 +143,7 @@ try:
     api_response = api_instance.delete_device_token(device_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DevicesApi->delete_device_token: %s\n" % e
+    print("Exception when calling DevicesApi->delete_device_token: %s\n" % e)
 ```
 
 ### Parameters
@@ -173,6 +176,7 @@ Retrieves a device
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -190,7 +194,7 @@ try:
     api_response = api_instance.get_device(device_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DevicesApi->get_device: %s\n" % e
+    print("Exception when calling DevicesApi->get_device: %s\n" % e)
 ```
 
 ### Parameters
@@ -223,6 +227,7 @@ Return the presence status of the given device along with the time it was last s
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -240,7 +245,7 @@ try:
     api_response = api_instance.get_device_presence(device_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DevicesApi->get_device_presence: %s\n" % e
+    print("Exception when calling DevicesApi->get_device_presence: %s\n" % e)
 ```
 
 ### Parameters
@@ -273,6 +278,7 @@ Retrieves a device's token
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -290,7 +296,7 @@ try:
     api_response = api_instance.get_device_token(device_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DevicesApi->get_device_token: %s\n" % e
+    print("Exception when calling DevicesApi->get_device_token: %s\n" % e)
 ```
 
 ### Parameters
@@ -323,6 +329,7 @@ Updates a device
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -341,7 +348,7 @@ try:
     api_response = api_instance.update_device(device_id, device)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DevicesApi->update_device: %s\n" % e
+    print("Exception when calling DevicesApi->update_device: %s\n" % e)
 ```
 
 ### Parameters
@@ -375,6 +382,7 @@ Updates a device's token
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -392,7 +400,7 @@ try:
     api_response = api_instance.update_device_token(device_id)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DevicesApi->update_device_token: %s\n" % e
+    print("Exception when calling DevicesApi->update_device_token: %s\n" % e)
 ```
 
 ### Parameters

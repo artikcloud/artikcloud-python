@@ -30,6 +30,7 @@ Create a new task for one or more devices
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -47,7 +48,7 @@ try:
     api_response = api_instance.create_tasks(task_payload)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DevicesManagementApi->create_tasks: %s\n" % e
+    print("Exception when calling DevicesManagementApi->create_tasks: %s\n" % e)
 ```
 
 ### Parameters
@@ -80,6 +81,7 @@ Deletes a device's properties.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -97,7 +99,7 @@ try:
     api_response = api_instance.delete_server_properties(did)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DevicesManagementApi->delete_server_properties: %s\n" % e
+    print("Exception when calling DevicesManagementApi->delete_server_properties: %s\n" % e)
 ```
 
 ### Parameters
@@ -130,6 +132,7 @@ Returns the list of tasks for a particular device id with optional status filter
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -152,7 +155,7 @@ try:
     api_response = api_instance.get_all_by_did(did, count=count, offset=offset, status=status, order=order, sort=sort)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DevicesManagementApi->get_all_by_did: %s\n" % e
+    print("Exception when calling DevicesManagementApi->get_all_by_did: %s\n" % e)
 ```
 
 ### Parameters
@@ -190,6 +193,7 @@ Read a device type device management information.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -207,7 +211,7 @@ try:
     api_response = api_instance.get_device_types_info(dtid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DevicesManagementApi->get_device_types_info: %s\n" % e
+    print("Exception when calling DevicesManagementApi->get_device_types_info: %s\n" % e)
 ```
 
 ### Parameters
@@ -240,6 +244,7 @@ Get a device type's device management manifest properties
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -257,7 +262,7 @@ try:
     api_response = api_instance.get_manifest_properties(dtid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DevicesManagementApi->get_manifest_properties: %s\n" % e
+    print("Exception when calling DevicesManagementApi->get_manifest_properties: %s\n" % e)
 ```
 
 ### Parameters
@@ -290,6 +295,7 @@ Read a device's properties.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -308,7 +314,7 @@ try:
     api_response = api_instance.get_properties(did, include_timestamp=include_timestamp)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DevicesManagementApi->get_properties: %s\n" % e
+    print("Exception when calling DevicesManagementApi->get_properties: %s\n" % e)
 ```
 
 ### Parameters
@@ -342,6 +348,7 @@ Returns the details and status of a task id and the individual statuses of each 
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -363,7 +370,7 @@ try:
     api_response = api_instance.get_statuses(tid, count=count, offset=offset, status=status, dids=dids)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DevicesManagementApi->get_statuses: %s\n" % e
+    print("Exception when calling DevicesManagementApi->get_statuses: %s\n" % e)
 ```
 
 ### Parameters
@@ -400,6 +407,7 @@ Returns the history of the status changes for a specific task id, or for a speci
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -418,7 +426,7 @@ try:
     api_response = api_instance.get_statuses_history(tid, did=did)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DevicesManagementApi->get_statuses_history: %s\n" % e
+    print("Exception when calling DevicesManagementApi->get_statuses_history: %s\n" % e)
 ```
 
 ### Parameters
@@ -452,6 +460,7 @@ Returns the details and global status of a specific task id.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -469,7 +478,7 @@ try:
     api_response = api_instance.get_task_by_id(tid)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DevicesManagementApi->get_task_by_id: %s\n" % e
+    print("Exception when calling DevicesManagementApi->get_task_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -502,6 +511,7 @@ Returns the all the tasks for a device type.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -524,7 +534,7 @@ try:
     api_response = api_instance.get_tasks(dtid, count=count, offset=offset, status=status, order=order, sort=sort)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DevicesManagementApi->get_tasks: %s\n" % e
+    print("Exception when calling DevicesManagementApi->get_tasks: %s\n" % e)
 ```
 
 ### Parameters
@@ -562,6 +572,7 @@ Query device properties across devices.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -583,7 +594,7 @@ try:
     api_response = api_instance.query_properties(dtid, count=count, offset=offset, filter=filter, include_timestamp=include_timestamp)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DevicesManagementApi->query_properties: %s\n" % e
+    print("Exception when calling DevicesManagementApi->query_properties: %s\n" % e)
 ```
 
 ### Parameters
@@ -620,6 +631,7 @@ Updates a device type information
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -638,7 +650,7 @@ try:
     api_response = api_instance.update_device_types_info(dtid, device_type_info)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DevicesManagementApi->update_device_types_info: %s\n" % e
+    print("Exception when calling DevicesManagementApi->update_device_types_info: %s\n" % e)
 ```
 
 ### Parameters
@@ -672,6 +684,7 @@ Updates a device's server properties.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -690,7 +703,7 @@ try:
     api_response = api_instance.update_server_properties(did, device_properties)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DevicesManagementApi->update_server_properties: %s\n" % e
+    print("Exception when calling DevicesManagementApi->update_server_properties: %s\n" % e)
 ```
 
 ### Parameters
@@ -724,6 +737,7 @@ Updates a task for all devices - For now just allows changing the state to cance
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -742,7 +756,7 @@ try:
     api_response = api_instance.update_task(tid, task_update_request)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DevicesManagementApi->update_task: %s\n" % e
+    print("Exception when calling DevicesManagementApi->update_task: %s\n" % e)
 ```
 
 ### Parameters
@@ -776,6 +790,7 @@ Updates a task for a specific device - For now just allows changing the state to
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -795,7 +810,7 @@ try:
     api_response = api_instance.update_task_for_device(tid, did, device_task_update_request)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DevicesManagementApi->update_task_for_device: %s\n" % e
+    print("Exception when calling DevicesManagementApi->update_task_for_device: %s\n" % e)
 ```
 
 ### Parameters

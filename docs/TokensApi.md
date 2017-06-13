@@ -18,6 +18,7 @@ Check Token
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -35,7 +36,7 @@ try:
     api_response = api_instance.check_token(token_info)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling TokensApi->check_token: %s\n" % e
+    print("Exception when calling TokensApi->check_token: %s\n" % e)
 ```
 
 ### Parameters
@@ -68,6 +69,7 @@ Refresh Token
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -86,7 +88,7 @@ try:
     api_response = api_instance.refresh_token(grant_type, refresh_token)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling TokensApi->refresh_token: %s\n" % e
+    print("Exception when calling TokensApi->refresh_token: %s\n" % e)
 ```
 
 ### Parameters
@@ -120,6 +122,7 @@ Returns the Token Information
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -136,7 +139,7 @@ try:
     api_response = api_instance.token_info()
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling TokensApi->token_info: %s\n" % e
+    print("Exception when calling TokensApi->token_info: %s\n" % e)
 ```
 
 ### Parameters
