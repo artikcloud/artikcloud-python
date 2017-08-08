@@ -4,8 +4,8 @@ from __future__ import absolute_import
 from .device_types_api import DeviceTypesApi
 from .devices_api import DevicesApi
 from .devices_management_api import DevicesManagementApi
-from .devicesshares_api import DevicessharesApi
-from .devicestatus_api import DevicestatusApi
+from .devices_shares_api import DevicesSharesApi
+from .devices_status_api import DevicesStatusApi
 from .export_api import ExportApi
 from .messages_api import MessagesApi
 from .registrations_api import RegistrationsApi

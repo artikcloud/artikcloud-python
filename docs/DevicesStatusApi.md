@@ -1,12 +1,12 @@
-# artikcloud.DevicestatusApi
+# artikcloud.DevicesStatusApi
 
 All URIs are relative to *https://api.artik.cloud/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_device_status**](DevicestatusApi.md#get_device_status) | **GET** /devices/{deviceId}/status | Get Device Status
-[**get_devices_status**](DevicestatusApi.md#get_devices_status) | **GET** /devices/status | Get Devices Status
-[**put_device_status**](DevicestatusApi.md#put_device_status) | **PUT** /devices/{deviceId}/status | Update Device Status
+[**get_device_status**](DevicesStatusApi.md#get_device_status) | **GET** /devices/{deviceId}/status | Get Device Status
+[**get_devices_status**](DevicesStatusApi.md#get_devices_status) | **GET** /devices/status | Get Devices Status
+[**put_device_status**](DevicesStatusApi.md#put_device_status) | **PUT** /devices/{deviceId}/status | Update Device Status
 
 
 # **get_device_status**
@@ -28,7 +28,7 @@ from pprint import pprint
 artikcloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = artikcloud.DevicestatusApi()
+api_instance = artikcloud.DevicesStatusApi()
 device_id = 'device_id_example' # str | Device ID.
 include_snapshot = true # bool | Include device snapshot into the response (optional)
 include_snapshot_timestamp = true # bool | Include device snapshot timestamp into the response (optional)
@@ -38,7 +38,7 @@ try:
     api_response = api_instance.get_device_status(device_id, include_snapshot=include_snapshot, include_snapshot_timestamp=include_snapshot_timestamp)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DevicestatusApi->get_device_status: %s\n" % e)
+    print("Exception when calling DevicesStatusApi->get_device_status: %s\n" % e)
 ```
 
 ### Parameters
@@ -83,7 +83,7 @@ from pprint import pprint
 artikcloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = artikcloud.DevicestatusApi()
+api_instance = artikcloud.DevicesStatusApi()
 dids = 'dids_example' # str | List of device ids (comma-separated) for which the statuses are requested.
 include_snapshot = true # bool | Include device snapshot into the response (optional)
 include_snapshot_timestamp = true # bool | Include device snapshot timestamp into the response (optional)
@@ -93,7 +93,7 @@ try:
     api_response = api_instance.get_devices_status(dids, include_snapshot=include_snapshot, include_snapshot_timestamp=include_snapshot_timestamp)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DevicestatusApi->get_devices_status: %s\n" % e)
+    print("Exception when calling DevicesStatusApi->get_devices_status: %s\n" % e)
 ```
 
 ### Parameters
@@ -138,7 +138,7 @@ from pprint import pprint
 artikcloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = artikcloud.DevicestatusApi()
+api_instance = artikcloud.DevicesStatusApi()
 device_id = 'device_id_example' # str | Device ID.
 body = artikcloud.DeviceStatusPut() # DeviceStatusPut | Body (optional)
 
@@ -147,7 +147,7 @@ try:
     api_response = api_instance.put_device_status(device_id, body=body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DevicestatusApi->put_device_status: %s\n" % e)
+    print("Exception when calling DevicesStatusApi->put_device_status: %s\n" % e)
 ```
 
 ### Parameters

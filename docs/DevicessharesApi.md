@@ -1,13 +1,13 @@
-# artikcloud.DevicessharesApi
+# artikcloud.DevicesSharesApi
 
 All URIs are relative to *https://api.artik.cloud/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_share_for_device**](DevicessharesApi.md#create_share_for_device) | **POST** in/api/devices/{deviceId}/shares | Share a device 
-[**delete_sharing_for_device**](DevicessharesApi.md#delete_sharing_for_device) | **DELETE** in/api/devices/{deviceId}/shares/{shareId} | Delete specific share of the given device id
-[**get_all_shares_for_device**](DevicessharesApi.md#get_all_shares_for_device) | **GET** in/api/devices/{deviceId}/shares | List all shares for the given device id
-[**get_sharing_for_device**](DevicessharesApi.md#get_sharing_for_device) | **GET** in/api/devices/{deviceId}/shares/{shareId} | Get specific share of the given device id
+[**create_share_for_device**](DevicesSharesApi.md#create_share_for_device) | **POST** /devices/{deviceId}/shares | Share a device 
+[**delete_sharing_for_device**](DevicesSharesApi.md#delete_sharing_for_device) | **DELETE** /devices/{deviceId}/shares/{shareId} | Delete specific share of the given device id
+[**get_all_shares_for_device**](DevicesSharesApi.md#get_all_shares_for_device) | **GET** /devices/{deviceId}/shares | List all shares for the given device id
+[**get_sharing_for_device**](DevicesSharesApi.md#get_sharing_for_device) | **GET** /devices/{deviceId}/shares/{shareId} | Get specific share of the given device id
 
 
 # **create_share_for_device**
@@ -29,7 +29,7 @@ from pprint import pprint
 artikcloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = artikcloud.DevicessharesApi()
+api_instance = artikcloud.DevicesSharesApi()
 device_id = 'device_id_example' # str | Device ID.
 device_share_info = artikcloud.DeviceShareInfo() # DeviceShareInfo | Device object that needs to be added
 
@@ -38,7 +38,7 @@ try:
     api_response = api_instance.create_share_for_device(device_id, device_share_info)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DevicessharesApi->create_share_for_device: %s\n" % e)
+    print("Exception when calling DevicesSharesApi->create_share_for_device: %s\n" % e)
 ```
 
 ### Parameters
@@ -82,7 +82,7 @@ from pprint import pprint
 artikcloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = artikcloud.DevicessharesApi()
+api_instance = artikcloud.DevicesSharesApi()
 device_id = 'device_id_example' # str | Device ID.
 share_id = 'share_id_example' # str | Share ID.
 
@@ -91,7 +91,7 @@ try:
     api_response = api_instance.delete_sharing_for_device(device_id, share_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DevicessharesApi->delete_sharing_for_device: %s\n" % e)
+    print("Exception when calling DevicesSharesApi->delete_sharing_for_device: %s\n" % e)
 ```
 
 ### Parameters
@@ -135,7 +135,7 @@ from pprint import pprint
 artikcloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = artikcloud.DevicessharesApi()
+api_instance = artikcloud.DevicesSharesApi()
 device_id = 'device_id_example' # str | Device ID.
 count = 56 # int | Desired count of items in the result set. (optional)
 offset = 56 # int | Offset for pagination. (optional)
@@ -145,7 +145,7 @@ try:
     api_response = api_instance.get_all_shares_for_device(device_id, count=count, offset=offset)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DevicessharesApi->get_all_shares_for_device: %s\n" % e)
+    print("Exception when calling DevicesSharesApi->get_all_shares_for_device: %s\n" % e)
 ```
 
 ### Parameters
@@ -190,7 +190,7 @@ from pprint import pprint
 artikcloud.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = artikcloud.DevicessharesApi()
+api_instance = artikcloud.DevicesSharesApi()
 device_id = 'device_id_example' # str | Device ID.
 share_id = 'share_id_example' # str | Share ID.
 
@@ -199,7 +199,7 @@ try:
     api_response = api_instance.get_sharing_for_device(device_id, share_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DevicessharesApi->get_sharing_for_device: %s\n" % e)
+    print("Exception when calling DevicesSharesApi->get_sharing_for_device: %s\n" % e)
 ```
 
 ### Parameters

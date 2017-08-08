@@ -723,6 +723,7 @@ class UsersApi(object):
         :param bool exclude_disabled: Exclude disabled rules in the result.
         :param int count: Desired count of items in the result set.
         :param int offset: Offset for pagination.
+        :param str owner: Rule owner
         :return: RulesEnvelope
                  If the method is called asynchronously,
                  returns the request thread.
@@ -752,12 +753,13 @@ class UsersApi(object):
         :param bool exclude_disabled: Exclude disabled rules in the result.
         :param int count: Desired count of items in the result set.
         :param int offset: Offset for pagination.
+        :param str owner: Rule owner
         :return: RulesEnvelope
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['user_id', 'exclude_disabled', 'count', 'offset']
+        all_params = ['user_id', 'exclude_disabled', 'count', 'offset', 'owner']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -791,6 +793,8 @@ class UsersApi(object):
             query_params['count'] = params['count']
         if 'offset' in params:
             query_params['offset'] = params['offset']
+        if 'owner' in params:
+            query_params['owner'] = params['owner']
 
         header_params = {}
 
@@ -897,7 +901,7 @@ class UsersApi(object):
 
         collection_formats = {}
 
-        resource_path = 'in/api/users/{userId}/shares'.replace('{format}', 'json')
+        resource_path = '/users/{userId}/shares'.replace('{format}', 'json')
         path_params = {}
         if 'user_id' in params:
             path_params['userId'] = params['user_id']

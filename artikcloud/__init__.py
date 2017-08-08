@@ -160,8 +160,8 @@ from .models.web_socket_error import WebSocketError
 from .apis.device_types_api import DeviceTypesApi
 from .apis.devices_api import DevicesApi
 from .apis.devices_management_api import DevicesManagementApi
-from .apis.devicesshares_api import DevicessharesApi
-from .apis.devicestatus_api import DevicestatusApi
+from .apis.devices_shares_api import DevicesSharesApi
+from .apis.devices_status_api import DevicesStatusApi
 from .apis.export_api import ExportApi
 from .apis.messages_api import MessagesApi
 from .apis.registrations_api import RegistrationsApi
