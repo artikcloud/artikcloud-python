@@ -43,6 +43,7 @@ import artikcloud
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```python
+from __future__ import print_function
 import time
 import artikcloud
 from artikcloud.rest import ApiException
@@ -98,13 +99,13 @@ Class | Method | HTTP request | Description
 *DevicesManagementApi* | [**update_server_properties**](docs/DevicesManagementApi.md#update_server_properties) | **POST** /devicemgmt/devices/{did}/serverproperties | Updates a device&#39;s server properties.
 *DevicesManagementApi* | [**update_task**](docs/DevicesManagementApi.md#update_task) | **PUT** /devicemgmt/tasks/{tid} | Updates a task for all devices - For now just allows changing the state to cancelled.
 *DevicesManagementApi* | [**update_task_for_device**](docs/DevicesManagementApi.md#update_task_for_device) | **PUT** /devicemgmt/tasks/{tid}/devices/{did} | Updates a task for a specific device - For now just allows changing the state to cancelled.
-*DevicessharesApi* | [**create_share_for_device**](docs/DevicessharesApi.md#create_share_for_device) | **POST** in/api/devices/{deviceId}/shares | Share a device 
-*DevicessharesApi* | [**delete_sharing_for_device**](docs/DevicessharesApi.md#delete_sharing_for_device) | **DELETE** in/api/devices/{deviceId}/shares/{shareId} | Delete specific share of the given device id
-*DevicessharesApi* | [**get_all_shares_for_device**](docs/DevicessharesApi.md#get_all_shares_for_device) | **GET** in/api/devices/{deviceId}/shares | List all shares for the given device id
-*DevicessharesApi* | [**get_sharing_for_device**](docs/DevicessharesApi.md#get_sharing_for_device) | **GET** in/api/devices/{deviceId}/shares/{shareId} | Get specific share of the given device id
-*DevicestatusApi* | [**get_device_status**](docs/DevicestatusApi.md#get_device_status) | **GET** /devices/{deviceId}/status | Get Device Status
-*DevicestatusApi* | [**get_devices_status**](docs/DevicestatusApi.md#get_devices_status) | **GET** /devices/status | Get Devices Status
-*DevicestatusApi* | [**put_device_status**](docs/DevicestatusApi.md#put_device_status) | **PUT** /devices/{deviceId}/status | Update Device Status
+*DevicesSharesApi* | [**create_share_for_device**](docs/DevicesSharesApi.md#create_share_for_device) | **POST** /devices/{deviceId}/shares | Share a device 
+*DevicesSharesApi* | [**delete_sharing_for_device**](docs/DevicesSharesApi.md#delete_sharing_for_device) | **DELETE** /devices/{deviceId}/shares/{shareId} | Delete specific share of the given device id
+*DevicesSharesApi* | [**get_all_shares_for_device**](docs/DevicesSharesApi.md#get_all_shares_for_device) | **GET** /devices/{deviceId}/shares | List all shares for the given device id
+*DevicesSharesApi* | [**get_sharing_for_device**](docs/DevicesSharesApi.md#get_sharing_for_device) | **GET** /devices/{deviceId}/shares/{shareId} | Get specific share of the given device id
+*DevicesStatusApi* | [**get_device_status**](docs/DevicesStatusApi.md#get_device_status) | **GET** /devices/{deviceId}/status | Get Device Status
+*DevicesStatusApi* | [**get_devices_status**](docs/DevicesStatusApi.md#get_devices_status) | **GET** /devices/status | Get Devices Status
+*DevicesStatusApi* | [**put_device_status**](docs/DevicesStatusApi.md#put_device_status) | **PUT** /devices/{deviceId}/status | Update Device Status
 *ExportApi* | [**export_request**](docs/ExportApi.md#export_request) | **POST** /messages/export | Create Export Request
 *ExportApi* | [**get_export_history**](docs/ExportApi.md#get_export_history) | **GET** /messages/export/history | Get Export History
 *ExportApi* | [**get_export_result**](docs/ExportApi.md#get_export_result) | **GET** /messages/export/{exportId}/result | Get Export Result
@@ -144,7 +145,7 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**get_user_devices**](docs/UsersApi.md#get_user_devices) | **GET** /users/{userId}/devices | Get User Devices
 *UsersApi* | [**get_user_properties**](docs/UsersApi.md#get_user_properties) | **GET** /users/{userId}/properties | Get User application properties
 *UsersApi* | [**get_user_rules**](docs/UsersApi.md#get_user_rules) | **GET** /users/{userId}/rules | Get User Rules
-*UsersApi* | [**list_all_shares_for_user**](docs/UsersApi.md#list_all_shares_for_user) | **GET** in/api/users/{userId}/shares | Get User shares
+*UsersApi* | [**list_all_shares_for_user**](docs/UsersApi.md#list_all_shares_for_user) | **GET** /users/{userId}/shares | Get User shares
 *UsersApi* | [**update_user_properties**](docs/UsersApi.md#update_user_properties) | **PUT** /users/{userId}/properties | Update User Application Properties
 
 
