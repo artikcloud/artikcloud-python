@@ -38,7 +38,7 @@ class TestDeviceTypesApi(TestArtikBase):
 
     def setUp(self):
         artikcloud.configuration.access_token = self.properties['device1.token']
-        self.api = artikcloud.DeviceTypesApi()
+        self.api = artikcloud.apis.device_types_api.DeviceTypesApi()
 
     def tearDown(self):
         pass
@@ -64,6 +64,14 @@ class TestDeviceTypesApi(TestArtikBase):
         Test case for get_device_types
 
         Get Device Types
+        """
+        pass
+
+    def test_get_device_types_by_application(self):
+        """
+        Test case for get_device_types_by_application
+
+        Get Device Types by Application
         """
         pass
 

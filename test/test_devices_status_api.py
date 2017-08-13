@@ -19,14 +19,14 @@ import unittest
 
 import artikcloud
 from artikcloud.rest import ApiException
-from artikcloud.apis.devicestatus_api import DevicestatusApi
+from artikcloud.apis.devices_status_api import DevicesStatusApi
 
 
-class TestDevicestatusApi(unittest.TestCase):
-    """ DevicestatusApi unit test stubs """
+class TestDevicesStatusApi(unittest.TestCase):
+    """ DevicesStatusApi unit test stubs """
 
     def setUp(self):
-        self.api = artikcloud.apis.devicestatus_api.DevicestatusApi()
+        self.api = artikcloud.apis.devices_status_api.DevicesStatusApi()
 
     def tearDown(self):
         pass
