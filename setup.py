@@ -31,7 +31,7 @@ setup(
     description="ARTIK Cloud API",
     author_email="",
     url="",
-    keywords=["Swagger", "ARTIK Cloud API"],
+    keywords=["ARTIK Cloud API"],
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True,
