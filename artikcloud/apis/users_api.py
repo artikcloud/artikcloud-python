@@ -495,6 +495,7 @@ class UsersApi(object):
         :param bool include_properties: Optional. Boolean (true/false) - If false, only return the user's device types. If true, also return device types shared by other users.
         :param str owner: Return owned and/or shared devices. Default to ALL.
         :param bool include_share_info: Include share info
+        :param str dtid: Return only devices of this device type. If empty, assumes all device types allowed by the authorization.
         :return: DevicesEnvelope
                  If the method is called asynchronously,
                  returns the request thread.
@@ -526,12 +527,13 @@ class UsersApi(object):
         :param bool include_properties: Optional. Boolean (true/false) - If false, only return the user's device types. If true, also return device types shared by other users.
         :param str owner: Return owned and/or shared devices. Default to ALL.
         :param bool include_share_info: Include share info
+        :param str dtid: Return only devices of this device type. If empty, assumes all device types allowed by the authorization.
         :return: DevicesEnvelope
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['user_id', 'offset', 'count', 'include_properties', 'owner', 'include_share_info']
+        all_params = ['user_id', 'offset', 'count', 'include_properties', 'owner', 'include_share_info', 'dtid']
         all_params.append('callback')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -569,6 +571,8 @@ class UsersApi(object):
             query_params['owner'] = params['owner']
         if 'include_share_info' in params:
             query_params['includeShareInfo'] = params['include_share_info']
+        if 'dtid' in params:
+            query_params['dtid'] = params['dtid']
 
         header_params = {}
 

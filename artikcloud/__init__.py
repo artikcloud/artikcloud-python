@@ -28,11 +28,21 @@ from .models.aggregates_histogram_data import AggregatesHistogramData
 from .models.aggregates_histogram_response import AggregatesHistogramResponse
 from .models.aggregates_response import AggregatesResponse
 from .models.app_properties import AppProperties
+from .models.certificate_data import CertificateData
+from .models.certificate_envelope import CertificateEnvelope
+from .models.certificate_fields import CertificateFields
+from .models.certificate_id import CertificateId
 from .models.check_token_message import CheckTokenMessage
 from .models.check_token_response import CheckTokenResponse
+from .models.contact_info import ContactInfo
 from .models.device import Device
 from .models.device_array import DeviceArray
 from .models.device_envelope import DeviceEnvelope
+from .models.device_pricing_tier import DevicePricingTier
+from .models.device_pricing_tier_envelope import DevicePricingTierEnvelope
+from .models.device_pricing_tier_request import DevicePricingTierRequest
+from .models.device_pricing_tiers import DevicePricingTiers
+from .models.device_pricing_tiers_envelope import DevicePricingTiersEnvelope
 from .models.device_reg_complete_request import DeviceRegCompleteRequest
 from .models.device_reg_confirm_user_request import DeviceRegConfirmUserRequest
 from .models.device_reg_confirm_user_response import DeviceRegConfirmUserResponse
@@ -59,6 +69,10 @@ from .models.device_type_array import DeviceTypeArray
 from .models.device_type_envelope import DeviceTypeEnvelope
 from .models.device_type_info import DeviceTypeInfo
 from .models.device_type_info_envelope import DeviceTypeInfoEnvelope
+from .models.device_type_pricing_list import DeviceTypePricingList
+from .models.device_type_pricing_tier import DeviceTypePricingTier
+from .models.device_type_pricing_tiers_envelope import DeviceTypePricingTiersEnvelope
+from .models.device_type_update_input import DeviceTypeUpdateInput
 from .models.device_types_envelope import DeviceTypesEnvelope
 from .models.device_types_info import DeviceTypesInfo
 from .models.device_types_info_envelope import DeviceTypesInfoEnvelope
@@ -106,6 +120,8 @@ from .models.presence_model import PresenceModel
 from .models.properties_envelope import PropertiesEnvelope
 from .models.refresh_token_response import RefreshTokenResponse
 from .models.register_message import RegisterMessage
+from .models.rejected_csv_row import RejectedCSVRow
+from .models.rejected_csv_rows_envelope import RejectedCSVRowsEnvelope
 from .models.rule_array import RuleArray
 from .models.rule_creation_info import RuleCreationInfo
 from .models.rule_envelope import RuleEnvelope
@@ -143,6 +159,7 @@ from .models.task_statuses_history_envelope import TaskStatusesHistoryEnvelope
 from .models.task_update_request import TaskUpdateRequest
 from .models.task_update_response import TaskUpdateResponse
 from .models.tasks_status_counts import TasksStatusCounts
+from .models.tier import Tier
 from .models.token import Token
 from .models.token_info import TokenInfo
 from .models.token_info_success_response import TokenInfoSuccessResponse
@@ -151,10 +168,20 @@ from .models.token_response import TokenResponse
 from .models.unregister_device_response import UnregisterDeviceResponse
 from .models.unregister_device_response_envelope import UnregisterDeviceResponseEnvelope
 from .models.update_parameters import UpdateParameters
+from .models.upgrade_path import UpgradePath
+from .models.upgrade_path_envelope import UpgradePathEnvelope
+from .models.upgrade_path_user_token import UpgradePathUserToken
+from .models.upgrade_path_user_token_envelope import UpgradePathUserTokenEnvelope
+from .models.upload_id_envelope import UploadIdEnvelope
+from .models.upload_status_envelope import UploadStatusEnvelope
 from .models.user import User
 from .models.user_envelope import UserEnvelope
 from .models.validation_callback_info import ValidationCallbackInfo
+from .models.validity_period import ValidityPeriod
 from .models.web_socket_error import WebSocketError
+from .models.whitelist import Whitelist
+from .models.whitelist_envelope import WhitelistEnvelope
+from .models.whitelist_result_envelope import WhitelistResultEnvelope
 
 # import apis into sdk package
 from .apis.device_types_api import DeviceTypesApi
@@ -164,12 +191,14 @@ from .apis.devices_shares_api import DevicesSharesApi
 from .apis.devices_status_api import DevicesStatusApi
 from .apis.export_api import ExportApi
 from .apis.messages_api import MessagesApi
+from .apis.monetization_api import MonetizationApi
 from .apis.registrations_api import RegistrationsApi
 from .apis.rules_api import RulesApi
 from .apis.subscriptions_api import SubscriptionsApi
 from .apis.tags_api import TagsApi
 from .apis.tokens_api import TokensApi
 from .apis.users_api import UsersApi
+from .apis.whitelisting_api import WhitelistingApi
 
 # import ApiClient
 from .api_client import ApiClient

@@ -119,6 +119,11 @@ Class | Method | HTTP request | Description
 *MessagesApi* | [**get_normalized_messages**](docs/MessagesApi.md#get_normalized_messages) | **GET** /messages | Get Normalized Messages
 *MessagesApi* | [**send_actions**](docs/MessagesApi.md#send_actions) | **POST** /actions | Send Actions
 *MessagesApi* | [**send_message**](docs/MessagesApi.md#send_message) | **POST** /messages | Send Message
+*MonetizationApi* | [**create_pricing_tiers**](docs/MonetizationApi.md#create_pricing_tiers) | **POST** /pricing/devicetypes/{dtid}/pricingtiers | Define devicetype&#39;s pricing tiers.
+*MonetizationApi* | [**get_pricing_tiers**](docs/MonetizationApi.md#get_pricing_tiers) | **GET** /pricing/devices/{did}/pricingtiers | Get a device&#39;s pricing tiers
+*MonetizationApi* | [**get_the__pricing_tiers**](docs/MonetizationApi.md#get_the__pricing_tiers) | **GET** /pricing/devicetypes/{dtid}/pricingtiers | Get devicetype&#39;s pricing tiers.
+*MonetizationApi* | [**get_upgrade_path**](docs/MonetizationApi.md#get_upgrade_path) | **GET** /pricing/devices/{did}/revenueshare/upgradepath | Get upgrade path
+*MonetizationApi* | [**set_pricing_tier**](docs/MonetizationApi.md#set_pricing_tier) | **PUT** /pricing/devices/{did}/pricingtiers | Set a device&#39;s pricing tier
 *RegistrationsApi* | [**confirm_user**](docs/RegistrationsApi.md#confirm_user) | **PUT** /devices/registrations/pin | Confirm User
 *RegistrationsApi* | [**get_request_status_for_user**](docs/RegistrationsApi.md#get_request_status_for_user) | **GET** /devices/registrations/{requestId}/status | Get Request Status For User
 *RegistrationsApi* | [**unregister_device**](docs/RegistrationsApi.md#unregister_device) | **DELETE** /devices/{deviceId}/registrations | Unregister Device
@@ -147,6 +152,15 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**get_user_rules**](docs/UsersApi.md#get_user_rules) | **GET** /users/{userId}/rules | Get User Rules
 *UsersApi* | [**list_all_shares_for_user**](docs/UsersApi.md#list_all_shares_for_user) | **GET** /users/{userId}/shares | Get User shares
 *UsersApi* | [**update_user_properties**](docs/UsersApi.md#update_user_properties) | **PUT** /users/{userId}/properties | Update User Application Properties
+*WhitelistingApi* | [**delete_vdid**](docs/WhitelistingApi.md#delete_vdid) | **DELETE** /devicetypes/{dtid}/whitelist/{vdid} | Delete a vdid from the devicetype whitelist.
+*WhitelistingApi* | [**delete_whitelist_certificate**](docs/WhitelistingApi.md#delete_whitelist_certificate) | **DELETE** /devicetypes/{dtid}/whitelist/certificates/{cid} | Delete a whitelist certificate associated with a devicetype.
+*WhitelistingApi* | [**enable_whitelist**](docs/WhitelistingApi.md#enable_whitelist) | **PUT** /devicetypes/:dtid/whitelist/enable | Enable or disble whitelist feature of a device type
+*WhitelistingApi* | [**get_rejected_row_list**](docs/WhitelistingApi.md#get_rejected_row_list) | **GET** /devicetypes/{dtid}/whitelist/{uploadId}/rejectedRows | Get the list of rejected rows for an uploaded CSV file.
+*WhitelistingApi* | [**get_upload_status**](docs/WhitelistingApi.md#get_upload_status) | **GET** /devicetypes/{dtid}/whitelist/{uploadId}/status | Get the status of a uploaded CSV file.
+*WhitelistingApi* | [**get_whitelist**](docs/WhitelistingApi.md#get_whitelist) | **GET** /devicetypes/{dtid}/whitelist | Get whitelisted vdids of a device type.
+*WhitelistingApi* | [**get_whitelist_certificate**](docs/WhitelistingApi.md#get_whitelist_certificate) | **GET** /devicetypes/{dtid}/whitelist/certificates | Get whitelist certificate of device type.
+*WhitelistingApi* | [**get_whitelist_status**](docs/WhitelistingApi.md#get_whitelist_status) | **GET** /devicetypes/{dtid}/whitelist/status | Get the status of whitelist feature (enabled/disabled) of a device type.
+*WhitelistingApi* | [**upload_csv**](docs/WhitelistingApi.md#upload_csv) | **POST** /devicetypes/{dtid}/whitelist | Upload a CSV file related to the Device Type.
 
 
 ## Documentation For Models
@@ -165,11 +179,21 @@ Class | Method | HTTP request | Description
  - [AggregatesHistogramResponse](docs/AggregatesHistogramResponse.md)
  - [AggregatesResponse](docs/AggregatesResponse.md)
  - [AppProperties](docs/AppProperties.md)
+ - [CertificateData](docs/CertificateData.md)
+ - [CertificateEnvelope](docs/CertificateEnvelope.md)
+ - [CertificateFields](docs/CertificateFields.md)
+ - [CertificateId](docs/CertificateId.md)
  - [CheckTokenMessage](docs/CheckTokenMessage.md)
  - [CheckTokenResponse](docs/CheckTokenResponse.md)
+ - [ContactInfo](docs/ContactInfo.md)
  - [Device](docs/Device.md)
  - [DeviceArray](docs/DeviceArray.md)
  - [DeviceEnvelope](docs/DeviceEnvelope.md)
+ - [DevicePricingTier](docs/DevicePricingTier.md)
+ - [DevicePricingTierEnvelope](docs/DevicePricingTierEnvelope.md)
+ - [DevicePricingTierRequest](docs/DevicePricingTierRequest.md)
+ - [DevicePricingTiers](docs/DevicePricingTiers.md)
+ - [DevicePricingTiersEnvelope](docs/DevicePricingTiersEnvelope.md)
  - [DeviceRegCompleteRequest](docs/DeviceRegCompleteRequest.md)
  - [DeviceRegConfirmUserRequest](docs/DeviceRegConfirmUserRequest.md)
  - [DeviceRegConfirmUserResponse](docs/DeviceRegConfirmUserResponse.md)
@@ -196,6 +220,10 @@ Class | Method | HTTP request | Description
  - [DeviceTypeEnvelope](docs/DeviceTypeEnvelope.md)
  - [DeviceTypeInfo](docs/DeviceTypeInfo.md)
  - [DeviceTypeInfoEnvelope](docs/DeviceTypeInfoEnvelope.md)
+ - [DeviceTypePricingList](docs/DeviceTypePricingList.md)
+ - [DeviceTypePricingTier](docs/DeviceTypePricingTier.md)
+ - [DeviceTypePricingTiersEnvelope](docs/DeviceTypePricingTiersEnvelope.md)
+ - [DeviceTypeUpdateInput](docs/DeviceTypeUpdateInput.md)
  - [DeviceTypesEnvelope](docs/DeviceTypesEnvelope.md)
  - [DeviceTypesInfo](docs/DeviceTypesInfo.md)
  - [DeviceTypesInfoEnvelope](docs/DeviceTypesInfoEnvelope.md)
@@ -243,6 +271,8 @@ Class | Method | HTTP request | Description
  - [PropertiesEnvelope](docs/PropertiesEnvelope.md)
  - [RefreshTokenResponse](docs/RefreshTokenResponse.md)
  - [RegisterMessage](docs/RegisterMessage.md)
+ - [RejectedCSVRow](docs/RejectedCSVRow.md)
+ - [RejectedCSVRowsEnvelope](docs/RejectedCSVRowsEnvelope.md)
  - [RuleArray](docs/RuleArray.md)
  - [RuleCreationInfo](docs/RuleCreationInfo.md)
  - [RuleEnvelope](docs/RuleEnvelope.md)
@@ -280,6 +310,7 @@ Class | Method | HTTP request | Description
  - [TaskUpdateRequest](docs/TaskUpdateRequest.md)
  - [TaskUpdateResponse](docs/TaskUpdateResponse.md)
  - [TasksStatusCounts](docs/TasksStatusCounts.md)
+ - [Tier](docs/Tier.md)
  - [Token](docs/Token.md)
  - [TokenInfo](docs/TokenInfo.md)
  - [TokenInfoSuccessResponse](docs/TokenInfoSuccessResponse.md)
@@ -288,11 +319,20 @@ Class | Method | HTTP request | Description
  - [UnregisterDeviceResponse](docs/UnregisterDeviceResponse.md)
  - [UnregisterDeviceResponseEnvelope](docs/UnregisterDeviceResponseEnvelope.md)
  - [UpdateParameters](docs/UpdateParameters.md)
+ - [UpgradePath](docs/UpgradePath.md)
+ - [UpgradePathEnvelope](docs/UpgradePathEnvelope.md)
+ - [UpgradePathUserToken](docs/UpgradePathUserToken.md)
+ - [UpgradePathUserTokenEnvelope](docs/UpgradePathUserTokenEnvelope.md)
+ - [UploadIdEnvelope](docs/UploadIdEnvelope.md)
+ - [UploadStatusEnvelope](docs/UploadStatusEnvelope.md)
  - [User](docs/User.md)
  - [UserEnvelope](docs/UserEnvelope.md)
  - [ValidationCallbackInfo](docs/ValidationCallbackInfo.md)
+ - [ValidityPeriod](docs/ValidityPeriod.md)
  - [WebSocketError](docs/WebSocketError.md)
-
+ - [Whitelist](docs/Whitelist.md)
+ - [WhitelistEnvelope](docs/WhitelistEnvelope.md)
+ - [WhitelistResultEnvelope](docs/WhitelistResultEnvelope.md)
 
 
 ## Documentation For Authorization

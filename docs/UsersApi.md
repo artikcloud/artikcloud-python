@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**get_user_devices**](UsersApi.md#get_user_devices) | **GET** /users/{userId}/devices | Get User Devices
 [**get_user_properties**](UsersApi.md#get_user_properties) | **GET** /users/{userId}/properties | Get User application properties
 [**get_user_rules**](UsersApi.md#get_user_rules) | **GET** /users/{userId}/rules | Get User Rules
-[**list_all_shares_for_user**](UsersApi.md#list_all_shares_for_user) | **GET** in/api/users/{userId}/shares | Get User shares
+[**list_all_shares_for_user**](UsersApi.md#list_all_shares_for_user) | **GET** /users/{userId}/shares | Get User shares
 [**update_user_properties**](UsersApi.md#update_user_properties) | **PUT** /users/{userId}/properties | Update User Application Properties
 
 
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_devices**
-> DevicesEnvelope get_user_devices(user_id, offset=offset, count=count, include_properties=include_properties, owner=owner, include_share_info=include_share_info)
+> DevicesEnvelope get_user_devices(user_id, offset=offset, count=count, include_properties=include_properties, owner=owner, include_share_info=include_share_info, dtid=dtid)
 
 Get User Devices
 
@@ -253,10 +253,11 @@ count = 56 # int | Desired count of items in the result set (optional)
 include_properties = true # bool | Optional. Boolean (true/false) - If false, only return the user's device types. If true, also return device types shared by other users. (optional)
 owner = 'owner_example' # str | Return owned and/or shared devices. Default to ALL. (optional)
 include_share_info = true # bool | Include share info (optional)
+dtid = 'dtid_example' # str | Return only devices of this device type. If empty, assumes all device types allowed by the authorization. (optional)
 
 try: 
     # Get User Devices
-    api_response = api_instance.get_user_devices(user_id, offset=offset, count=count, include_properties=include_properties, owner=owner, include_share_info=include_share_info)
+    api_response = api_instance.get_user_devices(user_id, offset=offset, count=count, include_properties=include_properties, owner=owner, include_share_info=include_share_info, dtid=dtid)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling UsersApi->get_user_devices: %s\n" % e)
@@ -272,6 +273,7 @@ Name | Type | Description  | Notes
  **include_properties** | **bool**| Optional. Boolean (true/false) - If false, only return the user&#39;s device types. If true, also return device types shared by other users. | [optional] 
  **owner** | **str**| Return owned and/or shared devices. Default to ALL. | [optional] 
  **include_share_info** | **bool**| Include share info | [optional] 
+ **dtid** | **str**| Return only devices of this device type. If empty, assumes all device types allowed by the authorization. | [optional] 
 
 ### Return type
 
@@ -342,7 +344,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_rules**
-> RulesEnvelope get_user_rules(user_id, exclude_disabled=exclude_disabled, count=count, offset=offset)
+> RulesEnvelope get_user_rules(user_id, exclude_disabled=exclude_disabled, count=count, offset=offset, owner=owner)
 
 Get User Rules
 
@@ -365,10 +367,11 @@ user_id = 'user_id_example' # str | User ID.
 exclude_disabled = true # bool | Exclude disabled rules in the result. (optional)
 count = 56 # int | Desired count of items in the result set. (optional)
 offset = 56 # int | Offset for pagination. (optional)
+owner = 'owner_example' # str | Rule owner (optional)
 
 try: 
     # Get User Rules
-    api_response = api_instance.get_user_rules(user_id, exclude_disabled=exclude_disabled, count=count, offset=offset)
+    api_response = api_instance.get_user_rules(user_id, exclude_disabled=exclude_disabled, count=count, offset=offset, owner=owner)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling UsersApi->get_user_rules: %s\n" % e)
@@ -382,6 +385,7 @@ Name | Type | Description  | Notes
  **exclude_disabled** | **bool**| Exclude disabled rules in the result. | [optional] 
  **count** | **int**| Desired count of items in the result set. | [optional] 
  **offset** | **int**| Offset for pagination. | [optional] 
+ **owner** | **str**| Rule owner | [optional] 
 
 ### Return type
 
