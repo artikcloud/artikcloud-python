@@ -31,7 +31,7 @@ class DeviceTypePricingTier(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'revenue_share_percent': 'Object',
+            'revenue_share_percent': 'object',
             'tiers': 'list[Tier]',
             'modified_on': 'int',
             'comments': 'str',
@@ -74,7 +74,7 @@ class DeviceTypePricingTier(object):
         revenue share percentage
 
         :return: The revenue_share_percent of this DeviceTypePricingTier.
-        :rtype: Object
+        :rtype: object
         """
         return self._revenue_share_percent
 
@@ -85,7 +85,7 @@ class DeviceTypePricingTier(object):
         revenue share percentage
 
         :param revenue_share_percent: The revenue_share_percent of this DeviceTypePricingTier.
-        :type: Object
+        :type: object
         """
 
         self._revenue_share_percent = revenue_share_percent
